@@ -23,6 +23,7 @@ public class TelaInicial extends FramePrincipal {
 
 	/*******************************************************************************/
 
+	
 	protected void initButtons() {
 		botaoMicroeconomia = new JButton();
 		botaoMicroeconomia.addActionListener(new ActionListener() {

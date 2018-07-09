@@ -76,8 +76,8 @@ public class TelaMacroeconomia extends FramePrincipal {
 	/*******************************************************************************/
 
 	protected void inflacao(ActionEvent e) {
-		JFrame telaCalcularInflacao = InterfaceController.controlaTelas("TelaInflacao");
-		telaCalcularInflacao.setVisible(true);
+		JFrame telaInflacao = InterfaceController.controlaTelas("TelaInflacao");
+		telaInflacao.setVisible(true);
 		dispose();
 
 	}

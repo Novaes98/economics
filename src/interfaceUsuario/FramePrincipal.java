@@ -29,6 +29,7 @@ public class FramePrincipal extends JFrame {
 				d = dd;
 			}
 		}
+		
 		int deslocamentoBtn = d.height;
 		int espacoDisponivel = height * 9 / 10;
 		int deslocy = (espacoDisponivel - quantidadeBtn * deslocamentoBtn) / (quantidadeBtn + 1);
@@ -41,6 +42,7 @@ public class FramePrincipal extends JFrame {
 			btn.setBounds(deslocx, deslocamentoTopoy, d.width, d.height);
 			deslocamentoTopoy = deslocamentoTopoy + deslocamentoBtn;
 			getContentPane().add(btn);
+			
 		}
 	}
 
