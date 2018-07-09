@@ -2,7 +2,7 @@ package interfaceUsuario;
 
 import javax.swing.JFrame;
 
-public class TelaElasticidade extends FramePrincipal {
+public class TelaElasticidade extends FrameSecundario {
 	
 	public TelaElasticidade(){
 		initComponents();
@@ -20,5 +20,9 @@ public class TelaElasticidade extends FramePrincipal {
 		dispose();
 	}
 	/*******************************************************************************/
+	
+	public void definirTexto(){
+		this.texto = "Era uma vez um porquinho legal.";
+	}
 	
 }

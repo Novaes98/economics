@@ -2,7 +2,7 @@ package interfaceUsuario;
 
 import javax.swing.JFrame;
 
-public class TelaOfertaVsDemanda extends FramePrincipal {
+public class TelaOfertaVsDemanda extends FrameSecundario {
 
 	public TelaOfertaVsDemanda() {
 		initComponents();
@@ -20,4 +20,8 @@ public class TelaOfertaVsDemanda extends FramePrincipal {
 		dispose();
 	}
 	/*******************************************************************************/
+	
+	public void definirTexto(){
+		this.texto = "Era uma vez um porquinho legal.";
+	}
 }

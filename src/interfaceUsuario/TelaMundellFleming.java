@@ -2,7 +2,7 @@ package interfaceUsuario;
 
 import javax.swing.JFrame;
 
-public class TelaMundellFleming extends FramePrincipal {
+public class TelaMundellFleming extends FrameSecundario {
 	
 	public TelaMundellFleming(){
 		initComponents();
@@ -20,4 +20,8 @@ public class TelaMundellFleming extends FramePrincipal {
 		dispose();
 	}
 	/*******************************************************************************/
+	
+	public void definirTexto(){
+		this.texto = "Era uma vez um porquinho legal.";
+	}
 }
