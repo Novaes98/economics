@@ -16,6 +16,7 @@ public class FramePrincipal extends JFrame {
 	protected JMenuBar menuBar;
 	protected JMenu voltar;
 
+
 	/***************************************************************************/
 
 	protected void insereBotoes(LinkedList<JButton> buttons) {

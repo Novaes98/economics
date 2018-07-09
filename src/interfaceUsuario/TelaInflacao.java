@@ -21,10 +21,14 @@ public class TelaInflacao extends FrameSecundario {
 
 		dispose();
 	}
+
 	/*******************************************************************************/
-	
-	
-	public void definirTexto(){
+
+	public void definirTexto() {
 		this.texto = "Eh aqui que colocaremos o texto bonito sobre inflacao.";
 	}
+	/*******************************************************************************/
+
+	
+	
 }
