@@ -45,7 +45,7 @@ public class TelaMacroeconomia extends FramePrincipal {
 		botaoInflacao.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				calcularInflacao(e);
+				inflacao(e);
 			}
 		});
 		botaoInflacao.setText("Calcular Inflacao");
@@ -71,13 +71,12 @@ public class TelaMacroeconomia extends FramePrincipal {
 		JFrame telaMundellFleming = InterfaceController.controlaTelas("TelaMundellFleming");
 		telaMundellFleming.setVisible(true);
 		dispose();
-
 	}
 
 	/*******************************************************************************/
 
-	protected void calcularInflacao(ActionEvent e) {
-		JFrame telaCalcularInflacao = InterfaceController.controlaTelas("TelaCalcularInflacao");
+	protected void inflacao(ActionEvent e) {
+		JFrame telaCalcularInflacao = InterfaceController.controlaTelas("TelaInflacao");
 		telaCalcularInflacao.setVisible(true);
 		dispose();
 
@@ -87,8 +86,8 @@ public class TelaMacroeconomia extends FramePrincipal {
 
 	protected void voltar(javax.swing.event.MenuEvent evt) {
 
-		JFrame telaMacroeconomia = InterfaceController.controlaTelas("TelaInicial");
-		telaMacroeconomia.setVisible(true);
+		JFrame telaInicial = InterfaceController.controlaTelas("TelaInicial");
+		telaInicial.setVisible(true);
 
 		dispose();
 	}

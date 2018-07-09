@@ -51,6 +51,7 @@ public class TelaMicroeconomia extends FramePrincipal {
 	protected void ofertaVsDemanda(ActionEvent e) {
 		JFrame telaMicroeconomia = InterfaceController.controlaTelas("TelaOfertaVsDemanda");
 		telaMicroeconomia.setVisible(true);
+		dispose();
 	}
 
 	/*******************************************************************************/
@@ -58,14 +59,15 @@ public class TelaMicroeconomia extends FramePrincipal {
 	protected void elasticidade(ActionEvent e) {
 		JFrame telaMacroeconomia = InterfaceController.controlaTelas("TelaElasticidade");
 		telaMacroeconomia.setVisible(true);
+		dispose();
 	}
 
 	/*******************************************************************************/
 
 	protected void voltar(javax.swing.event.MenuEvent evt) {
 
-		JFrame telaMacroeconomia = InterfaceController.controlaTelas("TelaInicial");
-		telaMacroeconomia.setVisible(true);
+		JFrame telaInicial = InterfaceController.controlaTelas("TelaInicial");
+		telaInicial.setVisible(true);
 
 		dispose();
 	}
