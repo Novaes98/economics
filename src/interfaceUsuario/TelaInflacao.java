@@ -1,5 +1,11 @@
 package interfaceUsuario;
 
-public class TelaCalcularInflacao extends FramePrincipal {
+public class TelaInflacao extends FramePrincipal {
+	
+	public TelaInflacao(){
+		initComponents();
+	}
+	
+	/***************************************************************************/
 
 }

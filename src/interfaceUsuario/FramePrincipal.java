@@ -16,9 +16,7 @@ public class FramePrincipal extends JFrame {
 	protected JMenuBar menuBar;
 	protected JMenu voltar;
 
-	/**
-	 * ****************************************************************************
-	 */
+	/***************************************************************************/
 
 	protected void insereBotoes(LinkedList<JButton> buttons) {
 		quantidadeBtn = buttons.size();
@@ -46,12 +44,10 @@ public class FramePrincipal extends JFrame {
 		}
 	}
 
-	/**
-	 * ****************************************************************************
-	 */
+	/***************************************************************************/
 
 	protected void initComponents() {
-	
+
 		titulo = new JLabel();
 		titulo.setFont(new Font("Baskerville Old Face", 0, 20));
 		getContentPane().add(titulo);
@@ -88,9 +84,7 @@ public class FramePrincipal extends JFrame {
 		setLocationRelativeTo(null);
 	}
 
-	/**
-	 * ****************************************************************************
-	 */
+	/***************************************************************************/
 
 	protected void setTitulo(String t) {
 		titulo.setText(t);
@@ -99,16 +93,12 @@ public class FramePrincipal extends JFrame {
 		titulo.setBounds(desloc, height / 10, dimensaopreferida.width, dimensaopreferida.height);
 	}
 
-	/**
-	 * ****************************************************************************
-	 */
+	/***************************************************************************/
 
 	protected void voltar(MenuEvent ev) {
 		// TODO os filhos devem implementar
 	}
 
-	/**
-	 * ****************************************************************************
-	 */
+	/***************************************************************************/
 
 }

@@ -3,45 +3,43 @@ package interfaceUsuario;
 import javax.swing.JFrame;
 
 public class InterfaceController {
-	
+
 	public static JFrame controlaTelas(String telaNova) {
 		JFrame novaTela = new JFrame();
-		
-		
-		switch(telaNova){
-		
-		case "TelaCalcularInflacao":
-			novaTela = new TelaCalcularInflacao();
-			break;	
-			
+
+		switch (telaNova) {
 		case "TelaElasticidade":
 			novaTela = new TelaElasticidade();
 			break;
-		
+
+		case "TelaInflacao":
+			novaTela = new TelaInflacao();
+			break;
+
 		case "TelaInicial":
 			novaTela = new TelaInicial();
 			break;
 
 		case "TelaMacroeconomia":
 			novaTela = new TelaMacroeconomia();
-			break;	
-			
+			break;
+
 		case "TelaMicroeconomia":
 			novaTela = new TelaMicroeconomia();
 			break;
-			
+
 		case "TelaMundellFleming":
 			novaTela = new TelaMundellFleming();
-			break;	
-			
+			break;
+
 		case "TelaOfertaVsDemanda":
 			novaTela = new TelaOfertaVsDemanda();
-			break;	
-			
+			break;
+
 		case "TelaRendaNacional":
 			novaTela = new TelaRendaNacional();
-			break;	
-			
+			break;
+
 		}
 		return novaTela;
 	}

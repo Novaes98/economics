@@ -12,7 +12,6 @@ public class TelaMacroeconomia extends FramePrincipal {
 	private JButton botaoMundell;
 	private JButton botaoInflacao;
 
-
 	/*******************************************************************************/
 
 	public TelaMacroeconomia() {
@@ -41,7 +40,7 @@ public class TelaMacroeconomia extends FramePrincipal {
 			}
 		});
 		botaoMundell.setText("Modelo de Mundell-Fleming");
-		
+
 		botaoInflacao = new JButton();
 		botaoInflacao.addActionListener(new ActionListener() {
 			@Override
@@ -76,7 +75,7 @@ public class TelaMacroeconomia extends FramePrincipal {
 	}
 
 	/*******************************************************************************/
-	
+
 	protected void calcularInflacao(ActionEvent e) {
 		JFrame telaCalcularInflacao = InterfaceController.controlaTelas("TelaCalcularInflacao");
 		telaCalcularInflacao.setVisible(true);
