@@ -1,6 +1,10 @@
 package interfaceUsuario;
 
+import interfaceUsuario.Elasticidade.*;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+import interfaceUsuario.Elasticidade.TelaElasticidade;
 
 public class InterfaceController {
 
@@ -8,6 +12,23 @@ public class InterfaceController {
 		JFrame novaTela = new JFrame();
 
 		switch (telaNova) {
+
+		case "PrecoCruzada":
+			novaTela = new ElasticidadePrecoCruzada();
+			break;
+
+		case "PrecoDemanda":
+			novaTela = new ElasticidadePrecoDemanda();
+			break;
+
+		case "PrecoOferta":
+			novaTela = new ElasticidadePrecoOferta();
+			break;
+
+		case "ProcuraRendimento":
+			novaTela = new ElasticidadeProcuraRendimento();
+			break;
+
 		case "TelaElasticidade":
 			novaTela = new TelaElasticidade();
 			break;
@@ -39,6 +60,8 @@ public class InterfaceController {
 		case "TelaRendaNacional":
 			novaTela = new TelaRendaNacional();
 			break;
+		default:
+			JOptionPane.showMessageDialog(null, "Tela invalida");
 
 		}
 		return novaTela;

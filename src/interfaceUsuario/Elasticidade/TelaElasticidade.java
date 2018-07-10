@@ -1,4 +1,4 @@
-package interfaceUsuario;
+package interfaceUsuario.Elasticidade;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -8,13 +8,15 @@ import java.util.LinkedList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import interfaceUsuario.FrameSecundario;
+import interfaceUsuario.InterfaceController;
+
 public class TelaElasticidade extends FrameSecundario {
 	private JButton botaoPrecoDemanda;
 	private JButton botaoProcuraRendimento;
 	private JButton botaoPrecoCruzada;
 	private JButton botaoPrecoOferta;
 
-	
 	public TelaElasticidade() {
 		initComponents();
 		setTitulo("Elasticidade");
@@ -34,15 +36,12 @@ public class TelaElasticidade extends FrameSecundario {
 	/*******************************************************************************/
 
 	public void definirTexto() {
-		this.texto = 
-				"A elasticidade pode ser definida como o tamanho do impacto que a alteracao" 
-				+ "em uma variavel exerce sobre uma outra variavel [https://pt.wikipedia.org/wiki/Elasticidade_(economia)].\n"
-				+ "Em microeconomia, existem tres tipos de elasticidade: \n\n"
-				+ "\t- Elasticidade preco da demanda;\n"
-				+ "\t- Elasticidade procura rendimento;\n"
-				+ "\t- Elasticidade-preco cruzada da demanda.\n"
-				+ "\t- Elasticidade-preco da oferta.\n\n"
-				+ "Clique em um dos botoes abaixo para saber mais sobre cada uma delas.";
+		this.texto = "    A elasticidade pode ser definida como o tamanho do impacto que a alteracao em\n"
+				+ "uma variavel exerce sobre uma outra variavel \n\n"
+				+ "    Em microeconomia, existem tres tipos de elasticidade: \n\n"
+				+ "\t- Elasticidade preco da demanda;\n" + "\t- Elasticidade procura rendimento;\n"
+				+ "\t- Elasticidade-preco cruzada da demanda.\n" + "\t- Elasticidade-preco da oferta.\n\n"
+				+ "    Clique em um dos botoes abaixo para saber mais sobre cada uma delas.";
 	}
 
 	/*******************************************************************************/
@@ -74,7 +73,7 @@ public class TelaElasticidade extends FrameSecundario {
 			}
 		});
 		botaoPrecoCruzada.setText("Preco cruzada da demanda");
-		
+
 		botaoPrecoOferta = new JButton();
 		botaoPrecoOferta.addActionListener(new ActionListener() {
 			@Override
@@ -92,28 +91,38 @@ public class TelaElasticidade extends FrameSecundario {
 
 		insereBotoes(botoes);
 	}
-	
+
 	/*******************************************************************************/
-	
-	public void precoDemanda(ActionEvent e){
-		
+
+	public void precoDemanda(ActionEvent e) {
+		JFrame precoDemanda = InterfaceController.controlaTelas("PrecoDemanda");
+		precoDemanda.setVisible(true);
+		dispose();
 	}
+
 	/*******************************************************************************/
-	
-	public void procuraRendimento(ActionEvent e){
-		
+
+	public void procuraRendimento(ActionEvent e) {
+		JFrame procuraRendimento = InterfaceController.controlaTelas("ProcuraRendimento");
+		procuraRendimento.setVisible(true);
+		dispose();
 	}
+
 	/*******************************************************************************/
-	
-	public void precoCruzada(ActionEvent e){
-		
+
+	public void precoCruzada(ActionEvent e) {
+		JFrame precoCruzada = InterfaceController.controlaTelas("PrecoCruzada");
+		precoCruzada.setVisible(true);
+		dispose();
 	}
+
 	/*******************************************************************************/
-	
-	public void precoOferta(ActionEvent e){
-		
+
+	public void precoOferta(ActionEvent e) {
+		JFrame precoOferta = InterfaceController.controlaTelas("PrecoOferta");
+		precoOferta.setVisible(true);
+		dispose();
 	}
-	/*******************************************************************************/
 
 	/***************************************************************************/
 
@@ -128,12 +137,12 @@ public class TelaElasticidade extends FrameSecundario {
 				d = dd;
 			}
 		}
-		
+
 		int deslocamentoBtn = d.height;
 		int espacoDisponivel = (height - heightTexto);
 		int deslocy = (espacoDisponivel - quantidadeBtn * deslocamentoBtn) / (quantidadeBtn + 1);
 		int deslocx = (width - d.width) / 2;
-		int deslocamentoTopoy = height/6;
+		int deslocamentoTopoy = height / 6;
 
 		// Coloca os malditos dos botoes nas telas
 		for (JButton btn : buttons) {

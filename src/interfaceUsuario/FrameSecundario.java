@@ -13,8 +13,8 @@ public abstract class FrameSecundario extends FramePrincipal {
 	protected int heightTexto;
 	public FrameSecundario() {
 
-		height = 1200;
-		width = 1000;
+		height = 900;
+		width = 750;
 		definirTexto();
 		inicializaCaixaDeTexto();
 	}
@@ -22,7 +22,7 @@ public abstract class FrameSecundario extends FramePrincipal {
 	/***************************************************************************/
 
 	protected void inicializaCaixaDeTexto() {
-		widthTexto = width / 2;
+		widthTexto = 3*width / 4;
 		heightTexto = height / 8;
 		txtAreaExplicacao = new JTextArea(texto);
 		txtAreaExplicacao.setEditable(false);
@@ -30,7 +30,7 @@ public abstract class FrameSecundario extends FramePrincipal {
 		JScrollPane scrollPane = new JScrollPane(txtAreaExplicacao);
 		Dimension d = txtAreaExplicacao.getPreferredSize();
 
-		scrollPane.setBounds(width / 4, height / 6, widthTexto, heightTexto);
+		scrollPane.setBounds(width / 8, height / 6, widthTexto, heightTexto);
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		getContentPane().add(scrollPane);
