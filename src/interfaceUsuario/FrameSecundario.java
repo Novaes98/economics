@@ -3,6 +3,8 @@ package interfaceUsuario;
 import java.awt.Dimension;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
@@ -11,6 +13,7 @@ public abstract class FrameSecundario extends FramePrincipal {
 	protected String texto;
 	protected int widthTexto;
 	protected int heightTexto;
+
 	public FrameSecundario() {
 
 		height = 900;
@@ -22,7 +25,7 @@ public abstract class FrameSecundario extends FramePrincipal {
 	/***************************************************************************/
 
 	protected void inicializaCaixaDeTexto() {
-		widthTexto = 3*width / 4;
+		widthTexto = 3 * width / 4;
 		heightTexto = height / 8;
 		txtAreaExplicacao = new JTextArea(texto);
 		txtAreaExplicacao.setEditable(false);
@@ -36,6 +39,25 @@ public abstract class FrameSecundario extends FramePrincipal {
 		getContentPane().add(scrollPane);
 
 	}
-	
+
+	/***************************************************************************/
+
+	protected void inserirImagem(String imagem, int posX, int posY) {
+		ImageIcon icon = getImagem(imagem);
+		JLabel label = new JLabel(icon);
+		label.setBounds(posX, posY, icon.getIconWidth(), icon.getIconHeight());
+		getContentPane().add(label);
+
+	}
+
+	/*******************************************************************************/
+
+	private ImageIcon getImagem(String nome) {
+		String caminhoDaImagem = "imagens/" + nome;
+		ClassLoader classLoader = this.getClass().getClassLoader();
+		ImageIcon icone = new ImageIcon(classLoader.getResource(caminhoDaImagem));
+		return icone;
+	}
+
 	protected abstract void definirTexto();
 }
