@@ -9,7 +9,7 @@ public class ElasticidadePrecoOferta extends FrameSecundario {
 
 	public ElasticidadePrecoOferta() {
 		initComponents();
-		setTitulo("Elasticidade: preco-oferta");
+		setTitulo("Elasticidade: Preco da oferta");
 	}
 
 	/*******************************************************************************/

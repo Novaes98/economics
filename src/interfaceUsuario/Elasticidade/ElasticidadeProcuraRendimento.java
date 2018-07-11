@@ -9,7 +9,7 @@ public class ElasticidadeProcuraRendimento extends FrameSecundario {
 
 	public ElasticidadeProcuraRendimento() {
 		initComponents();
-		setTitulo("Elasticidade: procura-rendimento");
+		setTitulo("Elasticidade: Rendimento da procura");
 	}
 
 	/*******************************************************************************/
