@@ -95,6 +95,15 @@ public class FramePrincipal extends JFrame {
 		int desloc = (width - dimensaopreferida.width) / 2;
 		titulo.setBounds(desloc, height / 10, dimensaopreferida.width, dimensaopreferida.height);
 	}
+	
+	/*******************************************************************************/
+	protected JTextArea txtGenerico(String texto) {
+		JTextArea txtArea = new JTextArea(texto);
+		txtArea.setEditable(false);
+		txtArea.setFont(new Font("Arial", 0, 14));
+
+		return txtArea;
+	}
 
 	/***************************************************************************/
 

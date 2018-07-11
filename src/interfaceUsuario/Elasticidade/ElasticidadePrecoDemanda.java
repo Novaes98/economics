@@ -18,9 +18,9 @@ public class ElasticidadePrecoDemanda extends FrameSecundario {
 	public ElasticidadePrecoDemanda() {
 
 		inserirImagem("Elasticidade_preco_demanda.jpg", width / 8, height / 3);
+		inicializaExtras();
 		initComponents();
 		setTitulo("Elasticidade: Preco na demanda");
-		inicializaExtras();
 		
 	}
 
@@ -34,73 +34,54 @@ public class ElasticidadePrecoDemanda extends FrameSecundario {
 				+ "maior o preço do bem ou serviço, menor a procura.";
 	}
 
-	/*******************************************************************************/
-	private JTextArea txtProcuraInicial() {
-		String textoProcuraInicial = "Insira um valor para a quantidade inicial";
-		JTextArea txtArea = new JTextArea(textoProcuraInicial);
-		txtArea.setEditable(false);
-		txtArea.setFont(new Font("Arial", 0, 14));
 
-		return txtArea;
-	}
-	
-	private JTextArea txtProcuraFinal() {
-		String textoProcuraInicial = "Insira um valor para a quantidade final";
-		JTextArea txtArea = new JTextArea(textoProcuraInicial);
-		txtArea.setEditable(false);
-		txtArea.setFont(new Font("Arial", 0, 14));
-
-		return txtArea;
-	}
-	
-	private JTextArea txtPrecoInicial() {
-		String textoProcuraInicial = "Insira um valor para o preco inicial";
-		JTextArea txtArea = new JTextArea(textoProcuraInicial);
-		txtArea.setEditable(false);
-		txtArea.setFont(new Font("Arial", 0, 14));
-
-		return txtArea;
-	}
-	
-	private JTextArea txtPrecoFinal() {
-		String textoProcuraInicial = "Insira um valor para o preco final";
-		JTextArea txtArea = new JTextArea(textoProcuraInicial);
-		txtArea.setEditable(false);
-		txtArea.setFont(new Font("Arial", 0, 14));
-
-		return txtArea;
-	}
 	
 	
 	private void inicializaExtras(){
-		JTextArea procuraInicial = txtProcuraInicial();
+		String textoProcuraInicial = "Insira um valor para a quantidade inicial";
+
+		JTextArea procuraInicial = txtGenerico(textoProcuraInicial);
 		Dimension dProcuraInicial = procuraInicial.getPreferredSize();
-		JScrollPane panelProcuraInicial = caixaDeTexto(procuraInicial, width / 8, height / 3 + 500, dProcuraInicial.width + 10, dProcuraInicial.height + 5);
+		JScrollPane panelProcuraInicial = caixaDeTexto(procuraInicial, width / 8, height / 3 + 100, dProcuraInicial.width + 10, dProcuraInicial.height + 5);
 		panelProcuraInicial.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		getContentPane()
-				.add(procuraInicial);
+				.add(panelProcuraInicial);
 		
-		JTextArea procuraFinal = txtProcuraFinal();
+		String textoProcuraFinal = "  Insira um valor para a quantidade final";
+
+		JTextArea procuraFinal = txtGenerico(textoProcuraFinal);
 		Dimension dProcuraFinal = procuraFinal.getPreferredSize();
-		JScrollPane panelProcuraFinal = caixaDeTexto(procuraFinal, width / 8 + 100, height / 3 + 100, dProcuraFinal.width + 10, dProcuraFinal.height + 5);
+		JScrollPane panelProcuraFinal = caixaDeTexto(procuraFinal, width / 8 + 300, height / 3 + 100, dProcuraInicial.width + 10, dProcuraInicial.height + 5);
 		panelProcuraFinal.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		getContentPane()
-				.add(procuraFinal);
+				.add(panelProcuraFinal);
 		
-		JTextArea precoInicial = txtPrecoInicial();
+		String textoPrecoInicial = "     Insira um valor para o preco inicial";
+
+		JTextArea precoInicial = txtGenerico(textoPrecoInicial);
 		Dimension dPrecoInicial = precoInicial.getPreferredSize();
-		JScrollPane panelPrecoInicial = caixaDeTexto(precoInicial, width / 8, height / 3 + 300, dPrecoInicial.width + 10, dPrecoInicial.height + 5);
+		JScrollPane panelPrecoInicial = caixaDeTexto(precoInicial, width / 8, height / 3 + 200, dProcuraInicial.width + 10, dProcuraInicial.height + 5);
 		panelPrecoInicial.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		getContentPane()
-				.add(precoInicial);
+				.add(panelPrecoInicial);
 		
-		JTextArea precoFinal = txtPrecoFinal();
+		String textoPrecoFinal = "     Insira um valor para o preco final";
+
+		JTextArea precoFinal = txtGenerico(textoPrecoFinal);
 		Dimension dPrecoFinal = precoFinal.getPreferredSize();
-		JScrollPane panelPrecoFinal = caixaDeTexto(precoFinal, width / 8 + 100, height / 3 + 300, dPrecoFinal.width + 10, dPrecoFinal.height + 5);
+		JScrollPane panelPrecoFinal = caixaDeTexto(precoFinal, width / 8 + 300, height / 3 + 200, dProcuraInicial.width + 10, dProcuraInicial.height + 5);
 		panelPrecoFinal.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		getContentPane()
-				.add(precoFinal);
+				.add(panelPrecoFinal);
 		
+		String textoPrecoAtual = "     Insira um valor para o preco atual";
+
+		JTextArea precoAtual = txtGenerico(textoPrecoAtual);
+		Dimension dPrecoAtual = precoAtual.getPreferredSize();
+		JScrollPane panelPrecoAtual = caixaDeTexto(precoAtual, width / 8, height / 3 + 300, dProcuraInicial.width + 10, dProcuraInicial.height + 5);
+		panelPrecoAtual.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+		getContentPane()
+				.add(panelPrecoAtual);
 	}
 
 
