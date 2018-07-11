@@ -1,3 +1,4 @@
+
 package interfaceUsuario.Elasticidade;
 
 import java.awt.Dimension;
