@@ -22,6 +22,6 @@ public class TelaOfertaVsDemanda extends FrameSecundario {
 	/*******************************************************************************/
 	
 	public void definirTexto(){
-		this.texto = "Era uma vez um porquinho legal.";
+		this.textoPrincipal = "Era uma vez um porquinho legal.";
 	}
 }

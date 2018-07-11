@@ -25,7 +25,7 @@ public class TelaInflacao extends FrameSecundario {
 	/*******************************************************************************/
 
 	public void definirTexto() {
-		this.texto = "Eh aqui que colocaremos o texto bonito sobre inflacao.";
+		this.textoPrincipal = "Eh aqui que colocaremos o texto bonito sobre inflacao.";
 	}
 	/*******************************************************************************/
 

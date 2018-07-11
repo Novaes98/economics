@@ -35,7 +35,7 @@ public class TelaElasticidade extends FrameSecundario {
 	/*******************************************************************************/
 
 	public void definirTexto() {
-		this.texto = "    A elasticidade pode ser definida como o tamanho do impacto que a alteracao em\n"
+		this.textoPrincipal = "    A elasticidade pode ser definida como o tamanho do impacto que a alteracao em\n"
 				+ "uma variavel exerce sobre uma outra variavel \n\n"
 				+ "    Em microeconomia, existem quatro tipos de elasticidade: \n\n"
 				+ "\t- Preco na demanda;\n" + "\t- Rendimento da procura;\n"

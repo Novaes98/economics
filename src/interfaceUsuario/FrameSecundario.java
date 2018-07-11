@@ -9,8 +9,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 public abstract class FrameSecundario extends FramePrincipal {
-	protected JTextArea txtAreaExplicacao;
-	protected String texto;
+	protected String textoPrincipal;
 	protected int widthTexto;
 	protected int heightTexto;
 
@@ -18,25 +17,27 @@ public abstract class FrameSecundario extends FramePrincipal {
 
 		height = 900;
 		width = 750;
+		widthTexto = 3 * width / 4;
+		heightTexto = height / 8;
 		definirTexto();
-		inicializaCaixaDeTexto();
+		
+		JTextArea txtArea = new JTextArea(textoPrincipal);
+		txtArea.setEditable(false);
+		txtArea.setFont(new Font("Arial", 0, 14));
+		getContentPane().add(caixaDeTexto(txtArea, width / 8, height / 6, widthTexto, heightTexto));
 	}
 
 	/***************************************************************************/
 
-	protected void inicializaCaixaDeTexto() {
-		widthTexto = 3 * width / 4;
-		heightTexto = height / 8;
-		txtAreaExplicacao = new JTextArea(texto);
-		txtAreaExplicacao.setEditable(false);
-		txtAreaExplicacao.setFont(new Font("Arial", 0, 14));
-		JScrollPane scrollPane = new JScrollPane(txtAreaExplicacao);
-		Dimension d = txtAreaExplicacao.getPreferredSize();
+	protected JScrollPane caixaDeTexto(JTextArea txtArea, int posX, int posY, int w,int h) {
 
-		scrollPane.setBounds(width / 8, height / 6, widthTexto, heightTexto);
+		JScrollPane scrollPane = new JScrollPane(txtArea);
+		Dimension d = txtArea.getPreferredSize();
+		
+		scrollPane.setBounds(posX, posY, w, h);
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		getContentPane().add(scrollPane);
+		return scrollPane;
 
 	}
 
