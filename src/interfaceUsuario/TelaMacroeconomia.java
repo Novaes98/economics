@@ -27,10 +27,10 @@ public class TelaMacroeconomia extends FramePrincipal {
 		botaoRendaNacional.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				rendaNacional(e);
+				PIB(e);
 			}
 		});
-		botaoRendaNacional.setText("Renda Nacional");
+		botaoRendaNacional.setText("PIB");
 
 		botaoMundell = new JButton();
 		botaoMundell.addActionListener(new ActionListener() {
@@ -59,9 +59,9 @@ public class TelaMacroeconomia extends FramePrincipal {
 
 	/*******************************************************************************/
 
-	protected void rendaNacional(ActionEvent e) {
-		JFrame telaRendaNacional = InterfaceController.controlaTelas("TelaRendaNacional");
-		telaRendaNacional.setVisible(true);
+	protected void PIB(ActionEvent e) {
+		JFrame PIB = InterfaceController.controlaTelas("TelaPIB");
+		PIB.setVisible(true);
 		dispose();
 	}
 

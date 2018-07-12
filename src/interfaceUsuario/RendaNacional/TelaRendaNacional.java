@@ -52,7 +52,7 @@ public class TelaRendaNacional extends FrameSecundario {
 				PIB(e);
 			}
 		});
-		botaoPIB.setText("PIB");
+		botaoPIB.setText("Calculo do PIB");
 		
 		botaoRendaPessoal = new JButton();
 		botaoRendaPessoal.addActionListener(new ActionListener() {
@@ -61,7 +61,7 @@ public class TelaRendaNacional extends FrameSecundario {
 				rendaPessoal(e);
 			}
 		});
-		botaoRendaPessoal.setText("RendaPessoal");
+		botaoRendaPessoal.setText("Renda Pessoal");
 
 		LinkedList<JButton> botoes = new LinkedList<>();
 		botoes.add(botaoPIB);
