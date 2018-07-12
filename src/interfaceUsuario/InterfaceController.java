@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import interfaceUsuario.Elasticidade.TelaElasticidade;
+import interfaceUsuario.RendaNacional.TelaRendaNacional;
 
 public class InterfaceController {
 
@@ -59,6 +60,10 @@ public class InterfaceController {
 
 		case "TelaRendaNacional":
 			novaTela = new TelaRendaNacional();
+			break;
+		
+		case "TelaPIB":
+			novaTela = new TelaPib();
 			break;
 		default:
 			JOptionPane.showMessageDialog(null, "Tela invalida");
