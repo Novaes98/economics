@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import interfaceUsuario.Elasticidade.TelaElasticidade;
+import interfaceUsuario.RendaNacional.TelaPib;
 import interfaceUsuario.RendaNacional.TelaRendaNacional;
 
 public class InterfaceController {

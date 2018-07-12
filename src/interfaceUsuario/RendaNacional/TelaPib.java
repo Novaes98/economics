@@ -1,6 +1,9 @@
-package interfaceUsuario;
+package interfaceUsuario.RendaNacional;
 
 import javax.swing.JFrame;
+
+import interfaceUsuario.FrameSecundario;
+import interfaceUsuario.InterfaceController;
 
 public class TelaPib extends FrameSecundario {
 	
