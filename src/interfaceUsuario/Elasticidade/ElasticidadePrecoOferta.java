@@ -137,14 +137,15 @@ public class ElasticidadePrecoOferta extends FrameSecundario {
 	}
 
 	/*******************************************************************************/
+	
 	private void calcular(ActionEvent e) {
 		String txtProcuraInicial = tfProcuraInicial.getText();
 		String txtProcuraFinal = tfProcuraFinal.getText();
-
 		String txtPrecoInicial = tfPrecoInicial.getText();
 		String txtPrecoFinal = tfPrecoFinal.getText();
 		String txtProcuraAtual = tfProcuraAtual.getText();
 		String txtPrecoAtual = tfPrecoAtual.getText();
+
 		try {
 			Validador.validaCampoInteiro(txtProcuraInicial, "Procura Inicial");
 			Validador.validaCampoInteiro(txtProcuraFinal, "Procura Final");
@@ -155,43 +156,31 @@ public class ElasticidadePrecoOferta extends FrameSecundario {
 
 			int procuraInicial, procuraFinal, procuraAtual;
 			double precoInicial, precoFinal, precoAtual;
+
 			procuraInicial = Integer.parseInt(txtProcuraInicial);
-			System.out.println("procuraInicial: " + procuraInicial);
-
 			procuraFinal = Integer.parseInt(txtProcuraFinal);
-			System.out.println("procuraFinal: " + procuraFinal);
-
 			procuraAtual = Integer.parseInt(txtProcuraAtual);
-			System.out.println("procuraAtual: " + procuraAtual);
 
 			precoInicial = Double.parseDouble(txtPrecoInicial);
-			System.out.println("precoInicial: " + precoInicial);
-
 			precoFinal = Double.parseDouble(txtPrecoFinal);
-			System.out.println("precoFinal: " + precoFinal);
-
 			precoAtual = Double.parseDouble(txtPrecoAtual);
-			System.out.println("precoAtual: " + precoAtual);
 
 			double elasticidade = ((precoFinal - precoInicial) * procuraAtual)
 					/ ((procuraFinal - procuraInicial) * precoAtual);
+			
 			String resposta = "O valor de sua elasticidade foi de: " + elasticidade + "\n";
-			if ((procuraFinal - procuraInicial) == 0 || precoAtual == 0) {
+			
+			if ((procuraFinal - procuraInicial) == 0 || precoAtual == 0)
 				resposta += "Uma elasticidade infinita significa";
-
-			}
-			if (elasticidade > 0) {
-				resposta += "Uma elasticidade positiva significa";
-			} else if (elasticidade == 0) {
-				resposta += "Uma elasticidade nula significa";
-
-			} else if (elasticidade == 1) {
+			else if (elasticidade == 1)
 				resposta += "Uma elasticidade unitaria significa";
-
-			} else {
+			else if (elasticidade > 0)
+				resposta += "Uma elasticidade positiva significa";
+			else if (elasticidade == 0)
+				resposta += "Uma elasticidade nula significa";
+			else
 				resposta += "Uma elasticidade negativa significa";
 
-			}
 			JOptionPane.showMessageDialog(this, resposta);
 			limparCampos();
 

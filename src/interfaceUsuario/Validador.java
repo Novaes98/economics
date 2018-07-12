@@ -5,8 +5,8 @@ public class Validador {
 		try{
 			double teste = Double.parseDouble(texto);
 			
+			if(!texto.matches("^[0-9]{1,10}\\.[0-9]{2}") && !texto.matches("^[0-9]{1,10}")) throw new ValidacaoException("O valor digitado em " + nomeDoCampo + " precisa estar no formato ####.## ou  ser um inteiro.");
 			if(teste < 0) throw new ValidacaoException("O valor digitado em " + nomeDoCampo + " nao pode ser negativo.");
-			if(!texto.matches("^[0-9]{1,10}\\.[0-9]{2}") && !texto.matches("^[0-9]{1,10}")) throw new ValidacaoException("O valor digitado em " + nomeDoCampo + " precisa estar no formato ####.##.");
 			
 
 		}catch(NumberFormatException e){
