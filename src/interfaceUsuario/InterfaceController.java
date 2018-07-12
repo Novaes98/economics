@@ -23,10 +23,6 @@ public class InterfaceController {
 			novaTela = new ElasticidadePrecoDemanda();
 			break;
 
-		case "PrecoOferta":
-			novaTela = new ElasticidadePrecoOferta();
-			break;
-
 		case "ProcuraRendimento":
 			novaTela = new ElasticidadeProcuraRendimento();
 			break;

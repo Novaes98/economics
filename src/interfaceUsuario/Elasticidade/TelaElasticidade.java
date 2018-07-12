@@ -16,7 +16,6 @@ public class TelaElasticidade extends FrameSecundario {
 	private JButton botaoPrecoDemanda;
 	private JButton botaoProcuraRendimento;
 	private JButton botaoPrecoCruzada;
-	private JButton botaoPrecoOferta;
 
 	public TelaElasticidade() {
 		initComponents();
@@ -74,20 +73,12 @@ public class TelaElasticidade extends FrameSecundario {
 		});
 		botaoPrecoCruzada.setText("Preco da demanda cruzada");
 
-		botaoPrecoOferta = new JButton();
-		botaoPrecoOferta.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				precoOferta(e);
-			}
-		});
-		botaoPrecoOferta.setText("Preco da oferta");
+	
 
 		LinkedList<JButton> botoes = new LinkedList<>();
 		botoes.add(botaoPrecoDemanda);
 		botoes.add(botaoProcuraRendimento);
 		botoes.add(botaoPrecoCruzada);
-		botoes.add(botaoPrecoOferta);
 
 		insereBotoes(botoes);
 	}
@@ -117,14 +108,6 @@ public class TelaElasticidade extends FrameSecundario {
 	}
 
 	/*******************************************************************************/
-
-	public void precoOferta(ActionEvent e) {
-		JFrame precoOferta = InterfaceController.controlaTelas("PrecoOferta");
-		precoOferta.setVisible(true);
-		dispose();
-	}
-
-	/***************************************************************************/
 
 	protected void insereBotoes(LinkedList<JButton> buttons) {
 		quantidadeBtn = buttons.size();

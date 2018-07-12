@@ -21,10 +21,9 @@ public class ElasticidadeProcuraRendimento extends FrameSecundario {
 	private JTextField tfProcuraFinal;
 	private JTextField tfPrecoInicial;
 	private JTextField tfPrecoFinal;
-	private JTextField tfProcuraAtual;
-	private JTextField tfPrecoAtual;
 
 	public ElasticidadeProcuraRendimento() {
+		inserirImagem("rendaDemanda.jpg", width / 8 - 50, height / 3);
 		inicializaExtras();
 		initComponents();
 		setTitulo("Elasticidade: Rendimento da procura");
@@ -43,7 +42,10 @@ public class ElasticidadeProcuraRendimento extends FrameSecundario {
 	/*******************************************************************************/
 
 	private void inicializaExtras() {
-		String textoProcuraInicial = "Insira um valor para a quantidade inicial";
+		
+		//Insere textAreas
+		
+		String textoProcuraInicial = "Insira um valor para a demanda inicial";
 
 		JTextArea procuraInicial = txtGenerico(textoProcuraInicial);
 		Dimension dProcuraInicial = procuraInicial.getPreferredSize();
@@ -52,7 +54,7 @@ public class ElasticidadeProcuraRendimento extends FrameSecundario {
 		panelProcuraInicial.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		getContentPane().add(panelProcuraInicial);
 
-		String textoProcuraFinal = "  Insira um valor para a quantidade final";
+		String textoProcuraFinal = "  Insira um valor para a demanda final";
 
 		JTextArea procuraFinal = txtGenerico(textoProcuraFinal);
 		JScrollPane panelProcuraFinal = caixaDeTexto(procuraFinal, width / 8 + 300, height / 3 + 100,
@@ -60,7 +62,7 @@ public class ElasticidadeProcuraRendimento extends FrameSecundario {
 		panelProcuraFinal.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		getContentPane().add(panelProcuraFinal);
 
-		String textoPrecoInicial = "     Insira um valor para o preco inicial";
+		String textoPrecoInicial = "     Insira um valor para a renda inicial";
 
 		JTextArea precoInicial = txtGenerico(textoPrecoInicial);
 		JScrollPane panelPrecoInicial = caixaDeTexto(precoInicial, width / 8, height / 3 + 200,
@@ -68,7 +70,7 @@ public class ElasticidadeProcuraRendimento extends FrameSecundario {
 		panelPrecoInicial.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		getContentPane().add(panelPrecoInicial);
 
-		String textoPrecoFinal = "     Insira um valor para o preco final";
+		String textoPrecoFinal = "     Insira um valor para a renda final";
 
 		JTextArea precoFinal = txtGenerico(textoPrecoFinal);
 		JScrollPane panelPrecoFinal = caixaDeTexto(precoFinal, width / 8 + 300, height / 3 + 200,
@@ -76,22 +78,8 @@ public class ElasticidadeProcuraRendimento extends FrameSecundario {
 		panelPrecoFinal.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		getContentPane().add(panelPrecoFinal);
 
-		String textoProcuraAtual = "     Insira um valor para a procura atual";
-
-		JTextArea procuraAtual = txtGenerico(textoProcuraAtual);
-		JScrollPane panelProcuraAtual = caixaDeTexto(procuraAtual, width / 8, height / 3 + 300,
-				dProcuraInicial.width + 10, dProcuraInicial.height + 5);
-		panelProcuraAtual.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
-		getContentPane().add(panelProcuraAtual);
-
-		String textoPrecoAtual = "     Insira um valor para o preco atual";
-
-		JTextArea precoAtual = txtGenerico(textoPrecoAtual);
-		JScrollPane panelPrecoAtual = caixaDeTexto(precoAtual, width / 8 + 300, height / 3 + 300,
-				dProcuraInicial.width + 10, dProcuraInicial.height + 5);
-		panelPrecoAtual.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
-		getContentPane().add(panelPrecoAtual);
-
+		//Insere TextFields
+		
 		tfProcuraInicial = new JTextField();
 		tfProcuraInicial.setBounds(width / 8, height / 3 + 125, dProcuraInicial.width + 10, dProcuraInicial.height + 5);
 		tfProcuraInicial.setText("Digite um numero inteiro positivo");
@@ -115,18 +103,6 @@ public class ElasticidadeProcuraRendimento extends FrameSecundario {
 
 		getContentPane().add(tfPrecoFinal);
 
-		tfProcuraAtual = new JTextField();
-		tfProcuraAtual.setBounds(width / 8, height / 3 + 325, dProcuraInicial.width + 10, dProcuraInicial.height + 5);
-		tfProcuraAtual.setText("Digite um numero inteiro positivo");
-		getContentPane().add(tfProcuraAtual);
-
-		tfPrecoAtual = new JTextField();
-		tfPrecoAtual.setBounds(width / 8 + 300, height / 3 + 325, dProcuraInicial.width + 10,
-				dProcuraInicial.height + 5);
-		tfPrecoAtual.setText("Digite no formato ##.## ou um inteiro positivo");
-
-		getContentPane().add(tfPrecoAtual);
-
 		JButton btnCalcular = new JButton("Calcular");
 		Dimension d = btnCalcular.getPreferredSize();
 		btnCalcular.setBounds(width / 2 - 50, height / 3 + 400, d.width, d.height);
@@ -141,39 +117,33 @@ public class ElasticidadeProcuraRendimento extends FrameSecundario {
 	}
 
 	/*******************************************************************************/
+
 	private void calcular(ActionEvent e) {
 		String txtProcuraInicial = tfProcuraInicial.getText();
 		String txtProcuraFinal = tfProcuraFinal.getText();
-		String txtPrecoInicial = tfPrecoInicial.getText();
-		String txtPrecoFinal = tfPrecoFinal.getText();
-		String txtProcuraAtual = tfProcuraAtual.getText();
-		String txtPrecoAtual = tfPrecoAtual.getText();
+		String txtRendaInicial = tfPrecoInicial.getText();
+		String txtRendaFinal = tfPrecoFinal.getText();
 
 		try {
-			Validador.validaCampoInteiro(txtProcuraInicial, "Procura Inicial");
-			Validador.validaCampoInteiro(txtProcuraFinal, "Procura Final");
-			Validador.validaCampoDinheiro(txtPrecoInicial, "Preco Inicial");
-			Validador.validaCampoDinheiro(txtPrecoFinal, "Preco Final");
-			Validador.validaCampoInteiro(txtProcuraAtual, "Procura Atual");
-			Validador.validaCampoDinheiro(txtPrecoAtual, "Preco Atual");
+			Validador.validaCampoInteiro(txtProcuraInicial, "Demanda Inicial");
+			Validador.validaCampoInteiro(txtProcuraFinal, "Demanda Final");
+			Validador.validaCampoDinheiro(txtRendaInicial, "Renda Inicial");
+			Validador.validaCampoDinheiro(txtRendaFinal, "renda Final");
 
-			int procuraInicial, procuraFinal, procuraAtual;
-			double precoInicial, precoFinal, precoAtual;
+			int procuraInicial, procuraFinal;
+			double rendaInicial, rendaFinal;
 
 			procuraInicial = Integer.parseInt(txtProcuraInicial);
 			procuraFinal = Integer.parseInt(txtProcuraFinal);
-			procuraAtual = Integer.parseInt(txtProcuraAtual);
 
-			precoInicial = Double.parseDouble(txtPrecoInicial);
-			precoFinal = Double.parseDouble(txtPrecoFinal);
-			precoAtual = Double.parseDouble(txtPrecoAtual);
+			rendaInicial = Double.parseDouble(txtRendaInicial);
+			rendaFinal = Double.parseDouble(txtRendaFinal);
 
-			double elasticidade = ((precoFinal - precoInicial) * procuraAtual)
-					/ ((procuraFinal - procuraInicial) * precoAtual);
+			double elasticidade = (((procuraFinal - procuraInicial) /((procuraFinal + procuraInicial)/2))/(((rendaFinal - rendaInicial) /((rendaFinal + rendaInicial)/2))));
 			
 			String resposta = "O valor de sua elasticidade foi de: " + elasticidade + "\n";
 			
-			if ((procuraFinal - procuraInicial) == 0 || precoAtual == 0)
+			if ((rendaFinal - rendaInicial) == 0 || ((procuraFinal + procuraInicial)/2) == 0)
 				resposta += "Uma elasticidade infinita significa";
 			else if (elasticidade == 1)
 				resposta += "Uma elasticidade unitaria significa";
@@ -200,8 +170,6 @@ public class ElasticidadeProcuraRendimento extends FrameSecundario {
 		tfProcuraFinal.setText("Digite um numero inteiro positivo");
 		tfPrecoInicial.setText("Digite no formato ##.## ou um inteiro positivo");
 		tfPrecoFinal.setText("Digite no formato ##.## ou um inteiro positivo");
-		tfProcuraAtual.setText("Digite um numero inteiro positivo");
-		tfPrecoAtual.setText("Digite no formato ##.## ou um inteiro positivo");
 	}
 
 	/*******************************************************************************/
