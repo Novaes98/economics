@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
 
 import interfaceUsuario.Elasticidade.TelaElasticidade;
 import interfaceUsuario.RendaNacional.TelaPib;
-import interfaceUsuario.RendaNacional.TelaRendaNacional;
 
 public class InterfaceController {
 
@@ -55,9 +54,6 @@ public class InterfaceController {
 			novaTela = new TelaOfertaVsDemanda();
 			break;
 
-		case "TelaRendaNacional":
-			novaTela = new TelaRendaNacional();
-			break;
 		
 		case "TelaPIB":
 			novaTela = new TelaPib();
