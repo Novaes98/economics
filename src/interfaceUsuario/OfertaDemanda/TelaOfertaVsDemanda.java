@@ -35,26 +35,26 @@ public class TelaOfertaVsDemanda extends FrameSecundario {
 	/*******************************************************************************/
 
 	public void definirTexto() {
-		this.textoPrincipal = "Em um mercado de concorrência perfeita, oferta e demanda são as duas forças que \r\n" + 
-				"garantem o funcionamento de um mercado, determinando preços e a quantidade de \r\n" + 
-				"produtos oferecidos. O termo oferta se refere à quantidade disponível de um \r\n" + 
+		this.textoPrincipal = "Em um mercado de concorrencia perfeita, oferta e demanda sao as duas forcas que \r\n" + 
+				"garantem o funcionamento de um mercado, determinando precos e a quantidade de \r\n" + 
+				"produtos oferecidos. O termo oferta se refere a quantidade disponivel de um \r\n" + 
 				"produto, ou seja, aquela que as empresas querem ou podem vender.\r\n" + 
-				"Já a demanda é a quantidade que os consumidores querem ou podem adquirir desse\r\n" + 
+				"Ja  demanda  a quantidade que os consumidores querem ou podem adquirir desse\r\n" + 
 				" produto, ou seja, sua procura.\r\n"
-				+ "\nTendo em base que tanto a oferta quanto a demanda estavam em equilíbrio \r\n" + 
-				"econômico e de oferta/demanda podemos gerar possíveis previsões com bases nas \r\n" + 
-				"informações atuais do mercado no exemplo abaixo:";
+				+ "\nTendo em base que tanto a oferta quanto a demanda estavam em equilibrio \r\n" + 
+				"economico e de oferta/demanda podemos gerar possiveis previsoes com bases nas \r\n" + 
+				"informacoees atuais do mercado no exemplo abaixo:";
 	}
 
 	public void iniciarExtra() {
 		cBoxOferta = new javax.swing.JComboBox<>();
-		cBoxOferta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Invariabilidade da Oferta","Aumento da Oferta","Redução da Oferta"}));
+		cBoxOferta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Invariabilidade da Oferta","Aumento da Oferta","Reducao da Oferta"}));
 		Dimension O = cBoxOferta.getPreferredSize();
 		cBoxOferta.setBounds(width / 8 + 50, height / 3 + 404, O.width, O.height);
 		getContentPane().add(cBoxOferta);
 
 		cBoxDemanda = new javax.swing.JComboBox<>();
-		cBoxDemanda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Invariabilidade da Demanda","Aumento da Demanda", "Redução da Demanda"}));
+		cBoxDemanda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Invariabilidade da Demanda","Aumento da Demanda", "Reducao da Demanda"}));
 		Dimension D = cBoxDemanda.getPreferredSize();
 		cBoxDemanda.setBounds(width / 8 + 350, height / 3 + 404, D.width, D.height);
 		getContentPane().add(cBoxDemanda);

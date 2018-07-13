@@ -38,11 +38,11 @@ public class ElasticidadePrecoDemanda extends FrameSecundario {
 	/*******************************************************************************/
 
 	protected void definirTexto() {
-		this.textoPrincipal = "    A elasticidade do preço na procura serve para mensurar o quanto a demanda\n "
-				+ "por um bem ou serviço varia em relção às mudanças no preço destes, supondo \n"
-				+ "que todas as outras variáveis envolvidas permaneçam constantes.\n"
-				+ "    As elasticidades do preço são quase sempre negativas, ou seja, quanto\n"
-				+ "maior o preço do bem ou serviço, menor a procura.";
+		this.textoPrincipal = "    A elasticidade do preco na procura serve para mensurar o quanto a demanda\n "
+				+ "por um bem ou servico varia em relcao as mudancas no preco destes, supondo \n"
+				+ "que todas as outras variaveis envolvidas permanecem constantes.\n"
+				+ "    As elasticidades do preco sao quase sempre negativas, ou seja, quanto\n"
+				+ "maior o preco do bem ou servico, menor a procura.";
 	}
 
 	/*******************************************************************************/

@@ -32,10 +32,10 @@ public class ElasticidadeProcuraRendimento extends FrameSecundario {
 	/*******************************************************************************/
 
 	protected void definirTexto() {
-		this.textoPrincipal = "    Normalmente existe uma relação direta entre o rendimento e a quantidade\n"
-				+ "procurada, ou seja, o valor da elasticidade procura rendimento é maior que zero (ou positiva):\n"
-				+ "se a renda aumenta, a demanda aumenta; se a renda diminui, a demanda também\n"
-				+ "diminui, na mesma proporção.";
+		this.textoPrincipal = "    Normalmente existe uma relacao direta entre o rendimento e a quantidade\n"
+				+ "procurada, ou seja, o valor da elasticidade procura rendimento eh maior que zero\n"
+				+ "(ou positiva):se a renda aumenta, a demanda aumenta; se a renda diminui, a demanda\n"
+				+ "tambem diminui, na mesma proporcao.";
 
 	}
 
