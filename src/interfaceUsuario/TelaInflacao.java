@@ -144,7 +144,7 @@ public class TelaInflacao extends FrameSecundario {
 
 			deflator1 = calculaDeflator(pibReal1, pibNominal1);
 
-			String resposta = "O valor da deflator para o ano 1 foi de: " + deflator1 + "%\n";
+			String resposta = "O valor do deflator para o ano 1 foi de: " + deflator1 + "%\n";
 
 			JOptionPane.showMessageDialog(this, resposta);
 
@@ -203,7 +203,7 @@ public class TelaInflacao extends FrameSecundario {
 
 			inflacao = calculaInflacao(calculaDeflator(pibReal1, pibNominal1), calculaDeflator(pibReal2, pibNominal2));
 
-			String resposta = "O valor da taxa inflacao para o ano 2 foi de: " + inflacao + "%\n";
+			String resposta = "O valor da taxa de inflacao para o ano 2 foi de: " + inflacao + "%\n";
 
 			JOptionPane.showMessageDialog(this, resposta);
 			limparCampos();
