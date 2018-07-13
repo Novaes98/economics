@@ -23,12 +23,16 @@ public class TelaPib extends FrameSecundario {
 	private JTextField tfPrecoA;
 	private JTextField tfPrecoB;
 
+	/*******************************************************************************/
+
 	public TelaPib() {
 		inserirImagem("PIB.jpg", width / 5 + 20, height / 3 + 19);
 		initComponents();
 		setTitulo("Calculo do Produto Interno Bruto (PIB)");
 		inicializaExtras();
 	}
+
+	/*******************************************************************************/
 
 	@Override
 	protected void definirTexto() {
@@ -49,6 +53,8 @@ public class TelaPib extends FrameSecundario {
 				+ "Para calcular o PIB real, multiplique a quantidade de cada ano pelo preco de um ano\n" + "fixo";
 
 	}
+
+	/*******************************************************************************/
 
 	private void inicializaExtras() {
 
@@ -122,6 +128,8 @@ public class TelaPib extends FrameSecundario {
 
 	}
 
+	/*******************************************************************************/
+
 	private void calcular(ActionEvent e) {
 		String txtQtdA = tfQtdProdutoA.getText();
 		String txtQtdB = tfQtdProdutoB.getText();
@@ -156,12 +164,16 @@ public class TelaPib extends FrameSecundario {
 
 	}
 
+	/*******************************************************************************/
+
 	private void limparCampos() {
 		tfQtdProdutoA.setText("Digite um numero inteiro positivo");
 		tfQtdProdutoB.setText("Digite um numero inteiro positivo");
 		tfPrecoA.setText("Digite no formato ##.## ou um inteiro positivo");
 		tfPrecoB.setText("Digite no formato ##.## ou um inteiro positivo");
 	}
+
+	/*******************************************************************************/
 
 	protected void voltar(javax.swing.event.MenuEvent evt) {
 
@@ -170,5 +182,6 @@ public class TelaPib extends FrameSecundario {
 
 		dispose();
 	}
+	/*******************************************************************************/
 
 }

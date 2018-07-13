@@ -53,7 +53,7 @@ public class TelaElasticidade extends FrameSecundario {
 				precoDemanda(e);
 			}
 		});
-		botaoPrecoDemanda.setText("Preco na demanda");
+		botaoPrecoDemanda.setText("Preco da demanda");
 
 		botaoProcuraRendimento = new JButton();
 		botaoProcuraRendimento.addActionListener(new ActionListener() {
@@ -62,7 +62,7 @@ public class TelaElasticidade extends FrameSecundario {
 				procuraRendimento(e);
 			}
 		});
-		botaoProcuraRendimento.setText("Rendimento da procura");
+		botaoProcuraRendimento.setText("Renda da demanda");
 
 		botaoPrecoCruzada = new JButton();
 		botaoPrecoCruzada.addActionListener(new ActionListener() {

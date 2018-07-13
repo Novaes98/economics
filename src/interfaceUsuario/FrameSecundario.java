@@ -20,7 +20,7 @@ public abstract class FrameSecundario extends FramePrincipal {
 		widthTexto = 3 * width / 4;
 		heightTexto = height / 8;
 		definirTexto();
-		
+
 		JTextArea txtArea = new JTextArea(textoPrincipal);
 		txtArea.setEditable(false);
 		txtArea.setFont(new Font("Arial", 0, 14));
@@ -29,11 +29,10 @@ public abstract class FrameSecundario extends FramePrincipal {
 
 	/***************************************************************************/
 
-	protected JScrollPane caixaDeTexto(JTextArea txtArea, int posX, int posY, int w,int h) {
+	protected JScrollPane caixaDeTexto(JTextArea txtArea, int posX, int posY, int w, int h) {
 
 		JScrollPane scrollPane = new JScrollPane(txtArea);
-		Dimension d = txtArea.getPreferredSize();
-		
+
 		scrollPane.setBounds(posX, posY, w, h);
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -60,5 +59,9 @@ public abstract class FrameSecundario extends FramePrincipal {
 		return icone;
 	}
 
+	/*******************************************************************************/
+
 	protected abstract void definirTexto();
+	/*******************************************************************************/
+
 }

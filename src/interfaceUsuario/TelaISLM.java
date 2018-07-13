@@ -3,12 +3,12 @@ package interfaceUsuario;
 import javax.swing.JFrame;
 
 public class TelaISLM extends FrameSecundario {
-	
-	public TelaISLM(){
+
+	public TelaISLM() {
 		initComponents();
 		setTitulo("Modelo de IS-LM");
 	}
-	
+
 	/***************************************************************************/
 
 	protected void voltar(javax.swing.event.MenuEvent evt) {
@@ -18,10 +18,12 @@ public class TelaISLM extends FrameSecundario {
 
 		dispose();
 	}
-	
+
 	/*******************************************************************************/
-	
-	public void definirTexto(){
+
+	public void definirTexto() {
 		this.textoPrincipal = "Era uma vez um porquinho legal.";
 	}
+	/*******************************************************************************/
+
 }

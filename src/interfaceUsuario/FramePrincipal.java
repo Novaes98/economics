@@ -16,7 +16,6 @@ public class FramePrincipal extends JFrame {
 	protected JMenuBar menuBar;
 	protected JMenu voltar;
 
-
 	/***************************************************************************/
 
 	protected void insereBotoes(LinkedList<JButton> buttons) {
@@ -30,7 +29,7 @@ public class FramePrincipal extends JFrame {
 				d = dd;
 			}
 		}
-		
+
 		int deslocamentoBtn = d.height;
 		int espacoDisponivel = height * 9 / 10;
 		int deslocy = (espacoDisponivel - quantidadeBtn * deslocamentoBtn) / (quantidadeBtn + 1);
@@ -43,7 +42,7 @@ public class FramePrincipal extends JFrame {
 			btn.setBounds(deslocx, deslocamentoTopoy, d.width, d.height);
 			deslocamentoTopoy = deslocamentoTopoy + deslocamentoBtn;
 			getContentPane().add(btn);
-			
+
 		}
 	}
 
@@ -95,7 +94,7 @@ public class FramePrincipal extends JFrame {
 		int desloc = (width - dimensaopreferida.width) / 2;
 		titulo.setBounds(desloc, height / 10, dimensaopreferida.width, dimensaopreferida.height);
 	}
-	
+
 	/*******************************************************************************/
 	protected JTextArea txtGenerico(String texto) {
 		JTextArea txtArea = new JTextArea(texto);

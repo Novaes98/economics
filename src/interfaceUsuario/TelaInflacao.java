@@ -17,9 +17,10 @@ public class TelaInflacao extends FrameSecundario {
 	private JTextField tfPIBReal1;
 	private JTextField tfPIBReal2;
 
+	/*******************************************************************************/
 
 	public TelaInflacao() {
-		
+
 		inserirImagem("deflator.jpg", width / 8 - 50, height / 3);
 		inicializaExtras();
 		initComponents();
@@ -35,24 +36,24 @@ public class TelaInflacao extends FrameSecundario {
 
 		dispose();
 	}
-	
-	public void inicializaExtras(){
+
+	/*******************************************************************************/
+
+	public void inicializaExtras() {
 		String textoPIBNominal1 = "Insira o PIB Nominal do ano 1";
 
 		JTextArea tAPIBNominal1 = txtGenerico(textoPIBNominal1);
 		Dimension dPIBNominal1 = tAPIBNominal1.getPreferredSize();
-		JScrollPane panelPIBNominal1 = caixaDeTexto(tAPIBNominal1, width / 8, height / 3 + 200,
-				dPIBNominal1.width + 10, dPIBNominal1.height + 5);
+		JScrollPane panelPIBNominal1 = caixaDeTexto(tAPIBNominal1, width / 8, height / 3 + 200, dPIBNominal1.width + 10,
+				dPIBNominal1.height + 5);
 		panelPIBNominal1.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		getContentPane().add(panelPIBNominal1);
-		
 
 		tfPIBNominal1 = new JTextField();
 		tfPIBNominal1.setBounds(width / 8, height / 3 + 225, dPIBNominal1.width + 10, dPIBNominal1.height + 5);
 		tfPIBNominal1.setText("Digite um numero inteiro positivo");
 		getContentPane().add(tfPIBNominal1);
-		
-		
+
 		String textoPIBNominal2 = "Insira o PIB Nominal do ano 2";
 
 		JTextArea tAPIBNominal2 = txtGenerico(textoPIBNominal2);
@@ -60,33 +61,30 @@ public class TelaInflacao extends FrameSecundario {
 				dPIBNominal1.width + 10, dPIBNominal1.height + 5);
 		panelPIBNominal2.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		getContentPane().add(panelPIBNominal2);
-		
 
 		tfPIBNominal2 = new JTextField();
 		tfPIBNominal2.setBounds(width / 8 + 300, height / 3 + 225, dPIBNominal1.width + 10, dPIBNominal1.height + 5);
 		tfPIBNominal2.setText("Digite um numero inteiro positivo");
 		getContentPane().add(tfPIBNominal2);
-		
+
 		String textoPIBReal1 = "Insira o PIB Real do ano 1";
 
 		JTextArea tAPIBReal1 = txtGenerico(textoPIBReal1);
-		JScrollPane panelPIBReal1 = caixaDeTexto(tAPIBReal1, width / 8, height / 3 + 300,
-				dPIBNominal1.width + 10, dPIBNominal1.height + 5);
+		JScrollPane panelPIBReal1 = caixaDeTexto(tAPIBReal1, width / 8, height / 3 + 300, dPIBNominal1.width + 10,
+				dPIBNominal1.height + 5);
 		panelPIBReal1.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		getContentPane().add(panelPIBReal1);
-		
 
 		tfPIBReal1 = new JTextField();
 		tfPIBReal1.setBounds(width / 8, height / 3 + 325, dPIBNominal1.width + 10, dPIBNominal1.height + 5);
 		tfPIBReal1.setText("Digite um numero inteiro positivo");
 		getContentPane().add(tfPIBReal1);
-		
-		
+
 		String textoPIBReal2 = "Insira o PIB Real do ano 2";
 
 		JTextArea tAPIBReal2 = txtGenerico(textoPIBReal2);
-		JScrollPane panelPIBReal2 = caixaDeTexto(tAPIBReal2, width / 8 + 300, height / 3 + 300,
-				dPIBNominal1.width + 10, dPIBNominal1.height + 5);
+		JScrollPane panelPIBReal2 = caixaDeTexto(tAPIBReal2, width / 8 + 300, height / 3 + 300, dPIBNominal1.width + 10,
+				dPIBNominal1.height + 5);
 		panelPIBReal2.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		getContentPane().add(panelPIBReal2);
 
@@ -94,8 +92,7 @@ public class TelaInflacao extends FrameSecundario {
 		tfPIBReal2.setBounds(width / 8 + 300, height / 3 + 325, dPIBNominal1.width + 10, dPIBNominal1.height + 5);
 		tfPIBReal2.setText("Digite um numero inteiro positivo");
 		getContentPane().add(tfPIBReal2);
-		
-		
+
 		JButton btnDeflator1 = new JButton("Deflator 1");
 		Dimension d = btnDeflator1.getPreferredSize();
 		btnDeflator1.setBounds(width / 8, height / 3 + 400, d.width, d.height);
@@ -117,7 +114,7 @@ public class TelaInflacao extends FrameSecundario {
 				botaoDeflator2(e);
 			}
 		});
-		
+
 		JButton btnInflacao = new JButton("Inflacao");
 		d = btnInflacao.getPreferredSize();
 		btnInflacao.setBounds(width / 8 + 400, height / 3 + 400, d.width, d.height);
@@ -128,24 +125,68 @@ public class TelaInflacao extends FrameSecundario {
 				botaoInflacao(e);
 			}
 		});
+	}
 
+	/*******************************************************************************/
+
+	private void botaoDeflator1(ActionEvent e) {
+		String txtPIBNominal = tfPIBNominal1.getText();
+		String txtPIBReal1 = tfPIBReal1.getText();
+
+		try {
+			Validador.validaCampoDinheiro(txtPIBNominal, "PIB Nominal do ano 1");
+			Validador.validaCampoDinheiro(txtPIBReal1, "PIB Real do ano 1");
+
+			double pibNominal1, pibReal1, deflator1;
+
+			pibNominal1 = Double.parseDouble(txtPIBNominal);
+			pibReal1 = Double.parseDouble(txtPIBReal1);
+
+			deflator1 = calculaDeflator(pibReal1, pibNominal1);
+
+			String resposta = "O valor da deflator para o ano 1 foi de: " + deflator1 + "%\n";
+
+			JOptionPane.showMessageDialog(this, resposta);
+
+		} catch (ValidacaoException ex) {
+			JOptionPane.showMessageDialog(this, ex.getMessage());
+		}
 	}
-	
-	
-	private void botaoDeflator1(ActionEvent e){
-		
+
+	/*******************************************************************************/
+
+	private void botaoDeflator2(ActionEvent e) {
+		String txtPIBNominal2 = tfPIBNominal2.getText();
+		String txtPIBReal2 = tfPIBReal2.getText();
+
+		try {
+			Validador.validaCampoDinheiro(txtPIBNominal2, "PIB Nominal do ano 2");
+			Validador.validaCampoDinheiro(txtPIBReal2, "PIB Real do ano 2");
+
+			double pibNominal2, pibReal2, deflator;
+
+			pibNominal2 = Double.parseDouble(txtPIBNominal2);
+			pibReal2 = Double.parseDouble(txtPIBReal2);
+
+			deflator = calculaDeflator(pibReal2, pibNominal2);
+
+			String resposta = "O valor do deflator para o ano 2 foi de: " + deflator + "%\n";
+
+			JOptionPane.showMessageDialog(this, resposta);
+
+		} catch (ValidacaoException ex) {
+			JOptionPane.showMessageDialog(this, ex.getMessage());
+		}
 	}
-	
-	private void botaoDeflator2(ActionEvent e){
-		
-	}
-	
-	private void botaoInflacao(ActionEvent e){
+
+	/*******************************************************************************/
+
+	private void botaoInflacao(ActionEvent e) {
 		String txtPIBNominal = tfPIBNominal1.getText();
 		String txtPIBNominal2 = tfPIBNominal2.getText();
 		String txtPIBReal1 = tfPIBReal1.getText();
 		String txtPIBReal2 = tfPIBReal2.getText();
-		
+
 		try {
 			Validador.validaCampoDinheiro(txtPIBNominal, "PIB Nominal do ano 1");
 			Validador.validaCampoDinheiro(txtPIBNominal2, "PIB Nominal do ano 2");
@@ -154,17 +195,16 @@ public class TelaInflacao extends FrameSecundario {
 
 			double pibNominal1, pibNominal2, pibReal1, pibReal2, inflacao;
 
-			pibNominal1=  Double.parseDouble(txtPIBNominal);
-			pibNominal2 =  Double.parseDouble(txtPIBNominal2);
+			pibNominal1 = Double.parseDouble(txtPIBNominal);
+			pibNominal2 = Double.parseDouble(txtPIBNominal2);
 
 			pibReal1 = Double.parseDouble(txtPIBReal1);
-			pibReal2 = Double.parseDouble(txtPIBReal1);
-			
-			inflacao = calculaInflacao(calculaDeflator(pibReal1,pibNominal1), calculaDeflator(pibReal2,pibNominal2));
-		
-				
-			String resposta = "O valor da taxa inflacao, para o ano 2 foi de: " + inflacao + "\n";
-		
+			pibReal2 = Double.parseDouble(txtPIBReal2);
+
+			inflacao = calculaInflacao(calculaDeflator(pibReal1, pibNominal1), calculaDeflator(pibReal2, pibNominal2));
+
+			String resposta = "O valor da taxa inflacao para o ano 2 foi de: " + inflacao + "%\n";
+
 			JOptionPane.showMessageDialog(this, resposta);
 			limparCampos();
 
@@ -172,14 +212,19 @@ public class TelaInflacao extends FrameSecundario {
 			JOptionPane.showMessageDialog(this, ex.getMessage());
 		}
 	}
-	private double calculaDeflator(double pibReal, double pibNominal){
-		return pibNominal/pibReal*100;
+
+	/*******************************************************************************/
+
+	private double calculaDeflator(double pibReal, double pibNominal) {
+		return pibNominal / pibReal * 100;
 	}
-	
-	private double calculaInflacao(double deflator1, double deflator2){
+
+	/*******************************************************************************/
+
+	private double calculaInflacao(double deflator1, double deflator2) {
 		return (deflator2 - deflator1) / deflator1;
 	}
-	
+
 	/*******************************************************************************/
 
 	private void limparCampos() {
@@ -196,8 +241,5 @@ public class TelaInflacao extends FrameSecundario {
 				+ "o deflator do PIB. O deflator é usado para medir a inflação ou a desvalorização da\n"
 				+ "moeda O cálculo da inflação é feito com base na fórmula abaixo:";
 	}
-	/**********************/  /***********************************************************************************/    /*********************************************************************************/   /*********************************************************************************/      /*********************************************************************************/     /*********************************************************************************/   /*********************************************************************************/     /*********************************************************************************/      /*********************************************************************************//*********************************************************************************/       /*********************************************************************************/ 
-
-	
-	
+	/*******************************************************************************/
 }

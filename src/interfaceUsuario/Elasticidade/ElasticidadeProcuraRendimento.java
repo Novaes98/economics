@@ -26,7 +26,7 @@ public class ElasticidadeProcuraRendimento extends FrameSecundario {
 		inserirImagem("rendaDemanda.jpg", width / 8 - 50, height / 3);
 		inicializaExtras();
 		initComponents();
-		setTitulo("Elasticidade: Rendimento da procura");
+		setTitulo("Elasticidade: Renda da demanda");
 	}
 
 	/*******************************************************************************/

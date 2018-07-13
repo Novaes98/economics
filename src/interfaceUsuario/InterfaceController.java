@@ -55,7 +55,6 @@ public class InterfaceController {
 			novaTela = new TelaOfertaVsDemanda();
 			break;
 
-		
 		case "TelaPIB":
 			novaTela = new TelaPib();
 			break;
