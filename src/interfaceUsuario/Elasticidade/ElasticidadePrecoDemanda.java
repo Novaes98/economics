@@ -81,22 +81,6 @@ public class ElasticidadePrecoDemanda extends FrameSecundario {
 		panelPrecoFinal.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		getContentPane().add(panelPrecoFinal);
 
-		String textoProcuraAtual = "     Insira um valor para a procura atual";
-
-		JTextArea procuraAtual = txtGenerico(textoProcuraAtual);
-		JScrollPane panelProcuraAtual = caixaDeTexto(procuraAtual, width / 8, height / 3 + 300,
-				dProcuraInicial.width + 10, dProcuraInicial.height + 5);
-		panelProcuraAtual.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
-		getContentPane().add(panelProcuraAtual);
-
-		String textoPrecoAtual = "     Insira um valor para o preco atual";
-
-		JTextArea precoAtual = txtGenerico(textoPrecoAtual);
-		JScrollPane panelPrecoAtual = caixaDeTexto(precoAtual, width / 8 + 300, height / 3 + 300,
-				dProcuraInicial.width + 10, dProcuraInicial.height + 5);
-		panelPrecoAtual.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
-		getContentPane().add(panelPrecoAtual);
-
 		tfProcuraInicial = new JTextField();
 		tfProcuraInicial.setBounds(width / 8, height / 3 + 125, dProcuraInicial.width + 10, dProcuraInicial.height + 5);
 		tfProcuraInicial.setText("Digite um numero inteiro positivo");
@@ -147,8 +131,6 @@ public class ElasticidadePrecoDemanda extends FrameSecundario {
 			Validador.validaCampoDinheiro(txtPrecoInicial, "Preco Inicial");
 			Validador.validaCampoDinheiro(txtPrecoFinal, "Preco Final");
 
-			
-
 			double procuraInicial, procuraFinal, precoInicial, precoFinal;
 
 			procuraInicial = Double.parseDouble(txtProcuraInicial);
@@ -157,13 +139,13 @@ public class ElasticidadePrecoDemanda extends FrameSecundario {
 			precoInicial = Double.parseDouble(txtPrecoInicial);
 			precoFinal = Double.parseDouble(txtPrecoFinal);
 
-			double parteDeCima = (procuraFinal - procuraInicial) / ((procuraFinal + procuraInicial)/2);
-			double parteDeBaixo = (precoFinal - precoInicial) /((precoFinal + precoInicial)/2);
+			double parteDeCima = (procuraFinal - procuraInicial) / ((procuraFinal + procuraInicial) / 2);
+			double parteDeBaixo = (precoFinal - precoInicial) / ((precoFinal + precoInicial) / 2);
 			double elasticidade = parteDeCima / parteDeBaixo;
-			
+
 			String resposta = "O valor de sua elasticidade foi de: " + elasticidade + "\n";
-			
-			if ((precoFinal - precoInicial) == 0 || ((procuraFinal + procuraInicial)/2) == 0)
+
+			if ((precoFinal - precoInicial) == 0 || ((procuraFinal + procuraInicial) / 2) == 0)
 				resposta += "Uma elasticidade infinita significa";
 			else if (elasticidade == 1)
 				resposta += "Uma elasticidade unitaria significa";
