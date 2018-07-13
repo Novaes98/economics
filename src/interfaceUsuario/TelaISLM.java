@@ -2,15 +2,14 @@ package interfaceUsuario;
 
 import javax.swing.JFrame;
 
-public class TelaMundellFleming extends FrameSecundario {
+public class TelaISLM extends FrameSecundario {
 	
-	public TelaMundellFleming(){
+	public TelaISLM(){
 		initComponents();
-		setTitulo("Modelo de Mundell-Fleming");
+		setTitulo("Modelo de IS-LM");
 	}
 	
 	/***************************************************************************/
-
 
 	protected void voltar(javax.swing.event.MenuEvent evt) {
 
@@ -19,6 +18,7 @@ public class TelaMundellFleming extends FrameSecundario {
 
 		dispose();
 	}
+	
 	/*******************************************************************************/
 	
 	public void definirTexto(){

@@ -130,16 +130,17 @@ public class ElasticidadeProcuraRendimento extends FrameSecundario {
 			Validador.validaCampoDinheiro(txtRendaInicial, "Renda Inicial");
 			Validador.validaCampoDinheiro(txtRendaFinal, "renda Final");
 
-			int procuraInicial, procuraFinal;
-			double rendaInicial, rendaFinal;
-
-			procuraInicial = Integer.parseInt(txtProcuraInicial);
-			procuraFinal = Integer.parseInt(txtProcuraFinal);
+			double procuraInicial, procuraFinal, rendaInicial, rendaFinal;
+			
+			procuraInicial = Double.parseDouble(txtProcuraInicial);
+			procuraFinal = Double.parseDouble(txtProcuraFinal);
 
 			rendaInicial = Double.parseDouble(txtRendaInicial);
 			rendaFinal = Double.parseDouble(txtRendaFinal);
 
-			double elasticidade = (((procuraFinal - procuraInicial) /((procuraFinal + procuraInicial)/2))/(((rendaFinal - rendaInicial) /((rendaFinal + rendaInicial)/2))));
+			double parteDeCima = (procuraFinal - procuraInicial) / ((procuraFinal + procuraInicial)/2);
+			double parteDeBaixo = (rendaFinal - rendaInicial) /((rendaFinal + rendaInicial)/2);
+			double elasticidade = parteDeCima / parteDeBaixo;
 			
 			String resposta = "O valor de sua elasticidade foi de: " + elasticidade + "\n";
 			

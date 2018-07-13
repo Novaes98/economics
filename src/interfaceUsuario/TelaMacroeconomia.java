@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 
 public class TelaMacroeconomia extends FramePrincipal {
 	private JButton botaoRendaNacional;
-	private JButton botaoMundell;
+	private JButton botaoISLM;
 	private JButton botaoInflacao;
 
 	/*******************************************************************************/
@@ -32,14 +32,14 @@ public class TelaMacroeconomia extends FramePrincipal {
 		});
 		botaoRendaNacional.setText("PIB");
 
-		botaoMundell = new JButton();
-		botaoMundell.addActionListener(new ActionListener() {
+		botaoISLM = new JButton();
+		botaoISLM.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				mundellFleming(e);
+				ISLM(e);
 			}
 		});
-		botaoMundell.setText("Modelo de Mundell-Fleming");
+		botaoISLM.setText("IS-LM");
 
 		botaoInflacao = new JButton();
 		botaoInflacao.addActionListener(new ActionListener() {
@@ -48,11 +48,11 @@ public class TelaMacroeconomia extends FramePrincipal {
 				inflacao(e);
 			}
 		});
-		botaoInflacao.setText("Calcular Inflacao");
+		botaoInflacao.setText("Deflator/Inflacao/Deflacao");
 
 		LinkedList<JButton> botoes = new LinkedList<>();
 		botoes.add(botaoRendaNacional);
-		botoes.add(botaoMundell);
+		botoes.add(botaoISLM);
 		botoes.add(botaoInflacao);
 		insereBotoes(botoes);
 	}
@@ -67,9 +67,9 @@ public class TelaMacroeconomia extends FramePrincipal {
 
 	/*******************************************************************************/
 
-	protected void mundellFleming(ActionEvent e) {
-		JFrame telaMundellFleming = InterfaceController.controlaTelas("TelaMundellFleming");
-		telaMundellFleming.setVisible(true);
+	protected void ISLM(ActionEvent e) {
+		JFrame telaISLM = InterfaceController.controlaTelas("TelaISLM");
+		telaISLM.setVisible(true);
 		dispose();
 	}
 

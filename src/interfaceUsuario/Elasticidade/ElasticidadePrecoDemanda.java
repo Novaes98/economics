@@ -25,12 +25,10 @@ public class ElasticidadePrecoDemanda extends FrameSecundario {
 	private JTextField tfProcuraFinal;
 	private JTextField tfPrecoInicial;
 	private JTextField tfPrecoFinal;
-	private JTextField tfProcuraAtual;
-	private JTextField tfPrecoAtual;
 
 	public ElasticidadePrecoDemanda() {
 
-		inserirImagem("Elasticidade_preco_demanda.jpg", width / 8 - 50, height / 3);
+		inserirImagem("PrecoDemanda.jpg", width / 8 - 50, height / 3);
 		inicializaExtras();
 		initComponents();
 		setTitulo("Elasticidade: Preco na demanda");
@@ -122,18 +120,6 @@ public class ElasticidadePrecoDemanda extends FrameSecundario {
 
 		getContentPane().add(tfPrecoFinal);
 
-		tfProcuraAtual = new JTextField();
-		tfProcuraAtual.setBounds(width / 8, height / 3 + 325, dProcuraInicial.width + 10, dProcuraInicial.height + 5);
-		tfProcuraAtual.setText("Digite um numero inteiro positivo");
-		getContentPane().add(tfProcuraAtual);
-
-		tfPrecoAtual = new JTextField();
-		tfPrecoAtual.setBounds(width / 8 + 300, height / 3 + 325, dProcuraInicial.width + 10,
-				dProcuraInicial.height + 5);
-		tfPrecoAtual.setText("Digite no formato ##.## ou um inteiro positivo");
-
-		getContentPane().add(tfPrecoAtual);
-
 		JButton btnCalcular = new JButton("Calcular");
 		Dimension d = btnCalcular.getPreferredSize();
 		btnCalcular.setBounds(width / 2 - 50, height / 3 + 400, d.width, d.height);
@@ -154,34 +140,30 @@ public class ElasticidadePrecoDemanda extends FrameSecundario {
 		String txtProcuraFinal = tfProcuraFinal.getText();
 		String txtPrecoInicial = tfPrecoInicial.getText();
 		String txtPrecoFinal = tfPrecoFinal.getText();
-		String txtProcuraAtual = tfProcuraAtual.getText();
-		String txtPrecoAtual = tfPrecoAtual.getText();
 
 		try {
 			Validador.validaCampoInteiro(txtProcuraInicial, "Procura Inicial");
 			Validador.validaCampoInteiro(txtProcuraFinal, "Procura Final");
 			Validador.validaCampoDinheiro(txtPrecoInicial, "Preco Inicial");
 			Validador.validaCampoDinheiro(txtPrecoFinal, "Preco Final");
-			Validador.validaCampoInteiro(txtProcuraAtual, "Procura Atual");
-			Validador.validaCampoDinheiro(txtPrecoAtual, "Preco Atual");
 
-			int procuraInicial, procuraFinal, procuraAtual;
-			double precoInicial, precoFinal, precoAtual;
+			
 
-			procuraInicial = Integer.parseInt(txtProcuraInicial);
-			procuraFinal = Integer.parseInt(txtProcuraFinal);
-			procuraAtual = Integer.parseInt(txtProcuraAtual);
+			double procuraInicial, procuraFinal, precoInicial, precoFinal;
+
+			procuraInicial = Double.parseDouble(txtProcuraInicial);
+			procuraFinal = Double.parseDouble(txtProcuraFinal);
 
 			precoInicial = Double.parseDouble(txtPrecoInicial);
 			precoFinal = Double.parseDouble(txtPrecoFinal);
-			precoAtual = Double.parseDouble(txtPrecoAtual);
 
-			double elasticidade = ((precoFinal - precoInicial) * procuraAtual)
-					/ ((procuraFinal - procuraInicial) * precoAtual);
+			double parteDeCima = (procuraFinal - procuraInicial) / ((procuraFinal + procuraInicial)/2);
+			double parteDeBaixo = (precoFinal - precoInicial) /((precoFinal + precoInicial)/2);
+			double elasticidade = parteDeCima / parteDeBaixo;
 			
 			String resposta = "O valor de sua elasticidade foi de: " + elasticidade + "\n";
 			
-			if ((procuraFinal - procuraInicial) == 0 || precoAtual == 0)
+			if ((precoFinal - precoInicial) == 0 || ((procuraFinal + procuraInicial)/2) == 0)
 				resposta += "Uma elasticidade infinita significa";
 			else if (elasticidade == 1)
 				resposta += "Uma elasticidade unitaria significa";
@@ -208,8 +190,6 @@ public class ElasticidadePrecoDemanda extends FrameSecundario {
 		tfProcuraFinal.setText("Digite um numero inteiro positivo");
 		tfPrecoInicial.setText("Digite no formato ##.## ou um inteiro positivo");
 		tfPrecoFinal.setText("Digite no formato ##.## ou um inteiro positivo");
-		tfProcuraAtual.setText("Digite um numero inteiro positivo");
-		tfPrecoAtual.setText("Digite no formato ##.## ou um inteiro positivo");
 	}
 
 	/*******************************************************************************/

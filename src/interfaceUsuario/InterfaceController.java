@@ -47,8 +47,8 @@ public class InterfaceController {
 			novaTela = new TelaMicroeconomia();
 			break;
 
-		case "TelaMundellFleming":
-			novaTela = new TelaMundellFleming();
+		case "TelaISLM":
+			novaTela = new TelaISLM();
 			break;
 
 		case "TelaOfertaVsDemanda":
