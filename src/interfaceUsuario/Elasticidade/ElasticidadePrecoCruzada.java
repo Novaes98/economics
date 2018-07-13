@@ -120,6 +120,7 @@ public class ElasticidadePrecoCruzada extends FrameSecundario {
 	/*******************************************************************************/
 	
 	private void calcular(ActionEvent e) {
+		
 		String txtProcuraInicial = tfProcuraInicial.getText();
 		String txtProcuraFinal = tfProcuraFinal.getText();
 		String txtPrecoInicial = tfPrecoInicial.getText();
@@ -131,17 +132,18 @@ public class ElasticidadePrecoCruzada extends FrameSecundario {
 			Validador.validaCampoDinheiro(txtPrecoInicial, "Preco Inicial  do produto 2");
 			Validador.validaCampoDinheiro(txtPrecoFinal, "Preco Final do produto 2");
 
-			int procuraInicial, procuraFinal;
-			double precoInicial, precoFinal;
+			double procuraInicial, procuraFinal, precoInicial, precoFinal;
 
-			procuraInicial = Integer.parseInt(txtProcuraInicial);
-			procuraFinal = Integer.parseInt(txtProcuraFinal);
+			procuraInicial =  Double.parseDouble(txtProcuraInicial);
+			procuraFinal =  Double.parseDouble(txtProcuraFinal);
 
 			precoInicial = Double.parseDouble(txtPrecoInicial);
 			precoFinal = Double.parseDouble(txtPrecoFinal);
-
-			double elasticidade = (((procuraFinal - procuraInicial) /((procuraFinal + procuraInicial)/2))/(((precoFinal - precoInicial) /((precoFinal + precoInicial)/2))));
 			
+			double parteDeCima = (procuraFinal - procuraInicial) / ((procuraFinal + procuraInicial)/2);
+			double parteDeBaixo = (precoFinal - precoInicial) /((precoFinal + precoInicial)/2);
+			double elasticidade = parteDeCima / parteDeBaixo;
+				
 			String resposta = "O valor de sua elasticidade foi de: " + elasticidade + "\n";
 			
 			if ((precoFinal - precoInicial) == 0 || ((procuraFinal + procuraInicial)/2) == 0)
