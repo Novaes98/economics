@@ -13,6 +13,7 @@ public class TelaISLM extends FrameSecundario {
     private javax.swing.JCheckBox zero ,one, two, three, four;
 
     public TelaISLM(){
+        initComponents();
 
     }
 
@@ -41,6 +42,10 @@ public class TelaISLM extends FrameSecundario {
         args[7] = this.P.getText();
         args[8] = this.MP.getText();
         islm.criarGrafico(args);
+    }
+
+    public void iniciarExtra(){
+        
     }
     /***************************************************************************/
 
