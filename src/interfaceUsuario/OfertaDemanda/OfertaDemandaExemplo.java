@@ -40,7 +40,7 @@ public class OfertaDemandaExemplo extends FramePrincipal {
 		txtArea.setFont(new Font("Arial", 0, 14));
 		getContentPane().add(caixaDeTexto(txtArea, width / 8, height / 6, widthTexto, heightTexto));
 		initComponents();
-		setTitulo("Resultado da previsao com os dados escolhidos");
+		setTitulo("Resultado da previsão com os dados escolhidos");
 	}
 
 	protected void voltar(javax.swing.event.MenuEvent evt) {
@@ -54,47 +54,51 @@ public class OfertaDemandaExemplo extends FramePrincipal {
 	private void iniciarExtra() {
 		if (victoferta.equals("Manter Oferta") && victormanda.equals("Manter Demanda")) {
 			inserirImagem("ofertaVsDemandaMATLAB.jpg", width / 5, height / 3);
-			this.explicacao = "Com as 2 variaveis invariando temos a constencia do ponto de equilibrio";
+			this.explicacao = "    O ponto de equilíbrio continua o mesmo se nem uma variável mudar.";
 
 		} else if (victoferta.equals("Manter Oferta") && victormanda.equals("Aumentar Demanda")) {
 			inserirImagem("aumentaDemandaOfertaEstavelMATLAB.jpg", width / 5, height / 3);
-			this.explicacao = "Com a invariancia da oferta e o aumento da demanda temos um leve aumento no\r\n"
-					+ " preco dos produtos devida a uma acentuada procura";
+			this.explicacao = "    Se a oferta de um produto se mantiver constante e houver um aumento da demanda,\n"
+					+ "o ponto de equilíbrio se desloca e o preço de equilíbrio sobe.";
 
 		} else if (victoferta.equals("Manter Oferta") && victormanda.equals("Reduzir Demanda")) {
 			inserirImagem("diminuiDemandaOfertaEstavelMATLAB.jpg", width / 5, height / 3);
-			this.explicacao = "Com a invariancia da oferta e a reducao da demanda temos um leve diminuicao no \r\n"
-					+ "preco dos produtos devida a uma reducao na procura";
+			this.explicacao = "    Se a oferta de um produto se mantiver constante e houver uma redução da demanda,\n"
+					+ "o ponto de equilíbrio se desloca e o preço de equilíbrio cai.";
 
 		} else if (victoferta.equals("Aumentar Oferta") && victormanda.equals("Manter Demanda")) {
 			inserirImagem("demandaEstavelOfertaAumentaMATLAB.jpg", width / 5, height / 3);
-			this.explicacao = "Com o aumento da oferta e a invariancia da demanda temos um decrescimo do preco \r\n"
-					+ "do produto devido a alto numero de produtos oferecidos";
+			this.explicacao = "    Se a oferta de um produto aumentar e a demanda por ele se mantiver constante,\n"
+					+ "o ponto de equilíbrio se desloca e o preço de equilíbrio cai.";
 
 		} else if (victoferta.equals("Aumentar Oferta") && victormanda.equals("Aumentar Demanda")) {
 			inserirImagem("AsDuasAumentamMATLAB.jpg", width / 5, height / 3);
-			this.explicacao = "Com o aumento da oferta e da demanda igualitarios temos um novo ponto de  \r\n"
-					+ "equilibrio economico entre oferta e demanda e assim aumentando um pouco o preco";
-
+			this.explicacao = "    Se a oferta de um produto aumentar e a demanda por ele também,\n"
+					+ "na mesma proporção, ocorre o deslocamento do ponto de equilíbrio e o preço\n"
+					+ "de equilíbrio se mantém, mas a quantidade necessária para atingir o preço\n"
+					+ "de equilíbrio aumenta.";
+			
 		} else if (victoferta.equals("Aumentar Oferta") && victormanda.equals("Reduzir Demanda")) {
 			inserirImagem("diminuiDemandaAumentaOferta.jpg", width / 5, height / 3);
-			this.explicacao = "Com o aumento da oferta e a reducao da demanda temos uma queda brusca no preco\r\n"
-					+ "pois nao ha ninguem comprando e excesso de produtos no mercado";
+			this.explicacao = "    Se a oferta de um produto aumentar e a demanda por ele diminuir na mesma proporção,\n"
+					+ "o ponto de equilíbrio se desloca e o preço de equilíbrio cai bastante.";
 
 		} else if (victoferta.equals("Reduzir Oferta") && victormanda.equals("Manter Demanda")) {
 			inserirImagem("demandaEstavelOfertaDiminuiMATLAB.jpg", width / 5, height / 3);
-			this.explicacao = "Com a reducao da oferta e a invariancia da demanda temos uma leve alta no \r\n"
-					+ "preco devida uma pequena escassez nos mercado";
+			this.explicacao = "    Se a oferta de um produto diminuir e a demanda por ele se mantiver constante,\n"
+					+ "o ponto de equilíbrio se desloca e o preço de equilíbrio sobe.";
 
 		} else if (victoferta.equals("Reduzir Oferta") && victormanda.equals("Aumentar Demanda")) {
 			inserirImagem("aumentaDemandaDimnuiOferta.jpg", width / 5, height / 3);
-			this.explicacao = "Com a reducao da oferta e o aumento da demanda temos uma disparada no preco\r\n"
-					+ "devido a procura elevada e a escassez do produto no mercado";
+			this.explicacao = "    Se a oferta de um produto diminuir e a demanda por ele aumentar,\n"
+					+ "o ponto de equilíbrio se desloca e o preço de equilíbrio sobe bastante.";
 
 		} else if (victoferta.equals("Reduzir Oferta") && victormanda.equals("Reduzir Demanda")) {
 			inserirImagem("AsDuasDiminuemMATLAB.jpg", width / 5, height / 3);
-			this.explicacao = "Com a reducao da oferta e demanda temos um novo ponto de equilibrio entre\r\n"
-					+ "oferta e demanda assim reduzindo um pouco o preco";
+			this.explicacao = "    Se a oferta de um produto diminuir e a demanda por ele diminuir,\n"
+					+ "na mesma proporção, ocorre o deslocamento do ponto de equilíbrio, mas o\n"
+					+ "preço de equilíbrio se mantém, mas a quantidade necessária para atingir o\n"
+					+ "preço de equilíbrio aumenta.";
 		}
 
 		cBoxOferta = new javax.swing.JComboBox<>();
