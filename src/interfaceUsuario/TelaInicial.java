@@ -16,7 +16,7 @@ public class TelaInicial extends FramePrincipal {
 
 	public TelaInicial() {
 		initComponents();
-		setTitulo("Tela inicial");
+		setTitulo("Bem-vindo!");
 		voltar.setText("Sair");
 		initButtons();
 	}
