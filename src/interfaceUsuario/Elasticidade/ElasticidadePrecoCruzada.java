@@ -32,18 +32,17 @@ public class ElasticidadePrecoCruzada extends FrameSecundario {
 	/*******************************************************************************/
 
 	protected void definirTexto() {
-		this.textoPrincipal = "    A elasticidade preco da demanda cruzada mensura o quanto a quantidade\n"
-				+ "demandada de um bem ou servico responde a mudancas no preco de outro.\n"
-				+ "    Ela eh calculada com base na porcentagem da mudanca na quantidade do\n"
-				+ "produto 1 dividida pela porcentagem de mudanca no preco do bem 2,\n"
-				+ "conforme formula abaixo:\n";
+		this.textoPrincipal = "    A elasticidade preço da demanda cruzada mensura o quanto a quantidade\n"
+				+ "demandada de um bem ou serviço responde a mudanças no preço de outro.\n"
+				+ "    Ela é calculada com base na porcentagem da mudança na quantidade do\n"
+				+ "produto 1 dividida pela porcentagem de mudança no preço do bem 2,\n" + "conforme fórmula abaixo:\n";
 	}
 
 	/*******************************************************************************/
 
 	private void inicializaExtras() {
-	
-		//Insere textAreas
+
+		// Insere textAreas
 
 		String textoProcuraInicial = "Insira a quantidade inicial do produto 1";
 
@@ -78,7 +77,7 @@ public class ElasticidadePrecoCruzada extends FrameSecundario {
 		panelPrecoFinal.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		getContentPane().add(panelPrecoFinal);
 
-		//Insere TextFields
+		// Insere TextFields
 
 		tfProcuraInicial = new JTextField();
 		tfProcuraInicial.setBounds(width / 8, height / 3 + 125, dProcuraInicial.width + 10, dProcuraInicial.height + 5);
@@ -102,7 +101,6 @@ public class ElasticidadePrecoCruzada extends FrameSecundario {
 		tfPrecoFinal.setText("Digite no formato ##.## ou um inteiro positivo");
 
 		getContentPane().add(tfPrecoFinal);
-	
 
 		JButton btnCalcular = new JButton("Calcular");
 		Dimension d = btnCalcular.getPreferredSize();
@@ -118,9 +116,9 @@ public class ElasticidadePrecoCruzada extends FrameSecundario {
 	}
 
 	/*******************************************************************************/
-	
+
 	private void calcular(ActionEvent e) {
-		
+
 		String txtProcuraInicial = tfProcuraInicial.getText();
 		String txtProcuraFinal = tfProcuraFinal.getText();
 		String txtPrecoInicial = tfPrecoInicial.getText();
@@ -134,28 +132,29 @@ public class ElasticidadePrecoCruzada extends FrameSecundario {
 
 			double procuraInicial, procuraFinal, precoInicial, precoFinal;
 
-			procuraInicial =  Double.parseDouble(txtProcuraInicial);
-			procuraFinal =  Double.parseDouble(txtProcuraFinal);
+			procuraInicial = Double.parseDouble(txtProcuraInicial);
+			procuraFinal = Double.parseDouble(txtProcuraFinal);
 
 			precoInicial = Double.parseDouble(txtPrecoInicial);
 			precoFinal = Double.parseDouble(txtPrecoFinal);
-			
-			double parteDeCima = (procuraFinal - procuraInicial) / ((procuraFinal + procuraInicial)/2);
-			double parteDeBaixo = (precoFinal - precoInicial) /((precoFinal + precoInicial)/2);
+
+			double parteDeCima = (procuraFinal - procuraInicial) / ((procuraFinal + procuraInicial) / 2);
+			double parteDeBaixo = (precoFinal - precoInicial) / ((precoFinal + precoInicial) / 2);
 			double elasticidade = parteDeCima / parteDeBaixo;
-				
+
 			String resposta = "O valor de sua elasticidade foi de: " + elasticidade + "\n";
-			
-			if ((precoFinal - precoInicial) == 0 || ((procuraFinal + procuraInicial)/2) == 0)
-				resposta += "Uma elasticidade infinita significa";
-			else if (elasticidade == 1)
-				resposta += "Uma elasticidade unitaria significa";
+
+			if ((precoFinal - precoInicial) == 0 || ((procuraFinal + procuraInicial) / 2) == 0)
+				resposta += "Uma elasticidade infinita significa que ela é perfeitamente elástica "
+						+ "e que a quantidade demandada é infinita no determinado preço";
 			else if (elasticidade > 0)
-				resposta += "Uma elasticidade positiva significa";
-			else if (elasticidade == 0)
-				resposta += "Uma elasticidade nula significa";
+				resposta += "Uma elasticidade positiva significa que se trata entre bens "
+						+ "substitutos e a quantidade demandada do bem 1 cresce com o aumento do preço do bem 2";
+			else if (elasticidade < 0)
+				resposta += "Uma elasticidade negativa significa que se trata entre bens"
+						+ "complementares e a quantidade demandada do bem 1 diminui com o aumento do preço do bem 2";
 			else
-				resposta += "Uma elasticidade negativa significa";
+				resposta += "Uma elasticidade nula significa que os bens são independentes";
 
 			JOptionPane.showMessageDialog(this, resposta);
 			limparCampos();

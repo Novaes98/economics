@@ -35,12 +35,13 @@ public class TelaElasticidade extends FrameSecundario {
 	/*******************************************************************************/
 
 	public void definirTexto() {
-		this.textoPrincipal = "    A elasticidade pode ser definida como o tamanho do impacto que a alteracao em\n"
-				+ "uma variavel exerce sobre uma outra variavel \n\n"
-				+ "    Em microeconomia, existem quatro tipos de elasticidade: \n\n"
-				+ "\t- Preco na demanda;\n" + "\t- Rendimento da procura;\n"
-				+ "\t- Preco da demanda cruzada.\n" + "\t- Preco da oferta.\n\n"
-				+ "    Clique em um dos botoes abaixo para saber mais sobre cada uma delas.";
+		this.textoPrincipal = "    A elasticidade pode ser definida como o tamanho do impacto que a alteração em\n"
+				+ "uma variável exerce sobre uma outra variável \n\n"
+				+ "    Em microeconomia, existem diversos tipos de elasticidade, tais como: \n\n"
+				+ "\t- Preco da demanda;\n"
+				+ "\t- Renda da demanda;\n"
+				+ "\t- Preco da demanda cruzada.\n"
+				+ "    Clique em um dos botões abaixo para saber mais sobre cada uma delas.";
 	}
 
 	/*******************************************************************************/
@@ -53,7 +54,7 @@ public class TelaElasticidade extends FrameSecundario {
 				precoDemanda(e);
 			}
 		});
-		botaoPrecoDemanda.setText("Preco da demanda");
+		botaoPrecoDemanda.setText("Preço da demanda");
 
 		botaoProcuraRendimento = new JButton();
 		botaoProcuraRendimento.addActionListener(new ActionListener() {
@@ -71,7 +72,7 @@ public class TelaElasticidade extends FrameSecundario {
 				precoCruzada(e);
 			}
 		});
-		botaoPrecoCruzada.setText("Preco da demanda cruzada");
+		botaoPrecoCruzada.setText("Preço da demanda cruzada");
 
 	
 

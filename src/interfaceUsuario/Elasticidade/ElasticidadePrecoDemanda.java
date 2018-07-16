@@ -38,8 +38,8 @@ public class ElasticidadePrecoDemanda extends FrameSecundario {
 	/*******************************************************************************/
 
 	protected void definirTexto() {
-		this.textoPrincipal = "    A elasticidade do preco na procura serve para mensurar o quanto a demanda\n "
-				+ "por um bem ou servico varia em relcao as mudancas no preco destes, supondo \n"
+		this.textoPrincipal = "    A elasticidade do preço na demanda serve para mensurar o quanto a demanda\n "
+				+ "por um bem ou serviço varia em relação às mudancas no preco destes, supondo \n"
 				+ "que todas as outras variaveis envolvidas permanecem constantes.\n"
 				+ "    As elasticidades do preco sao quase sempre negativas, ou seja, quanto\n"
 				+ "maior o preco do bem ou servico, menor a procura.";
@@ -146,15 +146,17 @@ public class ElasticidadePrecoDemanda extends FrameSecundario {
 			String resposta = "O valor de sua elasticidade foi de: " + elasticidade + "\n";
 
 			if ((precoFinal - precoInicial) == 0 || ((procuraFinal + procuraInicial) / 2) == 0)
-				resposta += "Uma elasticidade infinita significa";
+				resposta += "Uma elasticidade infinita significa que ela é perfeitamente elástica e que a quantidade demandada é infinita no determinado preço";
+			else if (elasticidade > 1)
+				resposta += "Uma elasticidade elástica significa que há uma variação de 1% no preço que corresponde uma variação superior a 1% na quantidade oferecida";
 			else if (elasticidade == 1)
-				resposta += "Uma elasticidade unitaria significa";
-			else if (elasticidade > 0)
-				resposta += "Uma elasticidade positiva significa";
+				resposta += "Uma elasticidade unitária significa que há uma variação de 1% no preço, corresponde a uma variação de 1% na quantidade oferecida";
+			else if (1 > elasticidade && elasticidade > 0)
+				resposta += "Uma elasticidade rígida significa que há uma variação de 1% no preço que corresponde uma variação inferior a 1% na quantidade oferecida";
 			else if (elasticidade == 0)
-				resposta += "Uma elasticidade nula significa";
+				resposta += "Uma elasticidade nula significa que ela é perfeitamente inelástica e que deixa inalterada a quantidade demanda";
 			else
-				resposta += "Uma elasticidade negativa significa";
+				resposta += "Uma elasticidade negativa não existe";
 
 			JOptionPane.showMessageDialog(this, resposta);
 			limparCampos();

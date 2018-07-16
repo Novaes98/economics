@@ -32,19 +32,18 @@ public class ElasticidadeProcuraRendimento extends FrameSecundario {
 	/*******************************************************************************/
 
 	protected void definirTexto() {
-		this.textoPrincipal = "    Normalmente existe uma relacao direta entre o rendimento e a quantidade\n"
-				+ "procurada, ou seja, o valor da elasticidade procura rendimento eh maior que zero\n"
-				+ "(ou positiva):se a renda aumenta, a demanda aumenta; se a renda diminui, a demanda\n"
-				+ "tambem diminui, na mesma proporcao.";
+		this.textoPrincipal = "    A elasticidade renda da demanda mede como a quantidade demandada\n"
+				+ "de um produto varia conforme a renda do consumidor deste produto varia.\n"
+				+ "O cálculo é´feito com base na fórmula abaixo:\n\n";
 
 	}
 
 	/*******************************************************************************/
 
 	private void inicializaExtras() {
-		
-		//Insere textAreas
-		
+
+		// Insere textAreas
+
 		String textoProcuraInicial = "Insira um valor para a demanda inicial";
 
 		JTextArea procuraInicial = txtGenerico(textoProcuraInicial);
@@ -78,8 +77,8 @@ public class ElasticidadeProcuraRendimento extends FrameSecundario {
 		panelPrecoFinal.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		getContentPane().add(panelPrecoFinal);
 
-		//Insere TextFields
-		
+		// Insere TextFields
+
 		tfProcuraInicial = new JTextField();
 		tfProcuraInicial.setBounds(width / 8, height / 3 + 125, dProcuraInicial.width + 10, dProcuraInicial.height + 5);
 		tfProcuraInicial.setText("Digite um numero inteiro positivo");
@@ -131,29 +130,26 @@ public class ElasticidadeProcuraRendimento extends FrameSecundario {
 			Validador.validaCampoDinheiro(txtRendaFinal, "renda Final");
 
 			double procuraInicial, procuraFinal, rendaInicial, rendaFinal;
-			
+
 			procuraInicial = Double.parseDouble(txtProcuraInicial);
 			procuraFinal = Double.parseDouble(txtProcuraFinal);
 
 			rendaInicial = Double.parseDouble(txtRendaInicial);
 			rendaFinal = Double.parseDouble(txtRendaFinal);
 
-			double parteDeCima = (procuraFinal - procuraInicial) / ((procuraFinal + procuraInicial)/2);
-			double parteDeBaixo = (rendaFinal - rendaInicial) /((rendaFinal + rendaInicial)/2);
+			double parteDeCima = (procuraFinal - procuraInicial) / ((procuraFinal + procuraInicial) / 2);
+			double parteDeBaixo = (rendaFinal - rendaInicial) / ((rendaFinal + rendaInicial) / 2);
 			double elasticidade = parteDeCima / parteDeBaixo;
-			
+
 			String resposta = "O valor de sua elasticidade foi de: " + elasticidade + "\n";
-			
-			if ((rendaFinal - rendaInicial) == 0 || ((procuraFinal + procuraInicial)/2) == 0)
-				resposta += "Uma elasticidade infinita significa";
-			else if (elasticidade == 1)
-				resposta += "Uma elasticidade unitaria significa";
-			else if (elasticidade > 0)
-				resposta += "Uma elasticidade positiva significa";
-			else if (elasticidade == 0)
-				resposta += "Uma elasticidade nula significa";
-			else
-				resposta += "Uma elasticidade negativa significa";
+			if (elasticidade == 1)
+				resposta += "Se a elasticidade for unitária significa que o bem é proporcional a renda";
+			else if (elasticidade > 0 && elasticidade < 1)
+				resposta += "Se a elasticidade for menor que 1 e positiva o bem é inelástico a renda";
+			else if (elasticidade > 1)
+				resposta += "Se for maior que 1 e positivo o bem é elástico a renda";
+			else if (elasticidade <= 0)
+				resposta += "Essa elasticidade significa que o bem é considerado inferior";
 
 			JOptionPane.showMessageDialog(this, resposta);
 			limparCampos();

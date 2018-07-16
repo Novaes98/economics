@@ -3,7 +3,6 @@ package interfaceUsuario.ISLM;
 
 import interfaceUsuario.FrameSecundario;
 import interfaceUsuario.InterfaceController;
-import interfaceUsuario.ISLM.islm;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -45,7 +44,7 @@ public class TelaISLM extends FrameSecundario {
     }
 
     public void iniciarExtra(){
-        
+
     }
     /***************************************************************************/
 
